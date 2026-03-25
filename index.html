@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Podcast - Your Podcast Name</title>
+  <meta name="description" content="A podcast about ideas, stories, and conversations that matter.">
+  <link rel="alternate" type="application/rss+xml" title="Podcast RSS Feed" href="rss.xml">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #e11d48;
+      --accent-hover: #be123c;
+      --bg: #ffffff;
+      --bg-secondary: #f8f8f8;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --card-bg: #ffffff;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif;
+      --font-serif: 'Georgia', 'Noto Serif SC', serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f0f0f;
+      --bg-secondary: #1a1a1a;
+      --text: #f0f0f0;
+      --text-secondary: #9ca3af;
+      --border: #2d2d2d;
+      --card-bg: #1e1e1e;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== Navigation ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.9);
+    }
+    [data-theme="dark"] nav {
+      background: rgba(15,15,15,0.9);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+
+    .theme-toggle:hover { border-color: var(--accent); }
+
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-text { flex: 1; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(225,29,72,0.1);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-cover {
+      flex-shrink: 0;
+      width: 320px;
+      height: 320px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 60%);
+    }
+
+    .hero-cover-icon {
+      font-size: 6rem;
+      color: rgba(255,255,255,0.9);
+      z-index: 1;
+    }
+
+    /* ===== Platform Links ===== */
+    .platforms {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .platforms-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .platforms-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .platform-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .platform-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .platform-icon { font-size: 1.2rem; }
+
+    /* ===== Section Headers ===== */
+    .section-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 24px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .section-header h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header a {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .section-header a:hover { text-decoration: underline; }
+
+    /* ===== Episodes ===== */
+    .episodes {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    .episode-card {
+      display: flex;
+      gap: 24px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card-bg);
+      margin-bottom: 16px;
+      transition: all 0.2s;
+    }
+
+    .episode-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    .episode-thumb {
+      flex-shrink: 0;
+      width: 160px;
+      height: 120px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #374151, #111827);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .episode-thumb-ep {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.15);
+      position: absolute;
+    }
+
+    .episode-play-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, background 0.2s;
+      z-index: 1;
+    }
+
+    .episode-play-btn:hover { transform: scale(1.1); background: var(--accent-hover); }
+
+    .episode-play-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+      margin-left: 2px;
+    }
+
+    .episode-info { flex: 1; min-width: 0; }
+
+    .episode-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .episode-number {
+      background: rgba(225,29,72,0.1);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .episode-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .episode-info h3:hover { color: var(--accent); }
+
+    .episode-desc {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ===== Audio Player ===== */
+    .audio-player {
+      display: none;
+      margin-top: 16px;
+      padding: 12px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+    }
+
+    .audio-player.active { display: block; }
+
+    .audio-player audio {
+      width: 100%;
+      height: 40px;
+    }
+
+    /* ===== About ===== */
+    .about {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: flex;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-img {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e11d48, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .about-text h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .about-text p {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    /* ===== Subscribe CTA ===== */
+    .subscribe {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .subscribe h2 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .subscribe p {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 12px;
+      max-width: 440px;
+      margin: 0 auto 24px;
+    }
+
+    .subscribe-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background: var(--card-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .subscribe-form input:focus { border-color: var(--accent); }
+
+    .subscribe-form input::placeholder { color: var(--text-secondary); }
+
+    .rss-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .rss-link:hover { text-decoration: underline; }
+
+    /* ===== Footer ===== */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-left {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-left strong { color: var(--text); font-weight: 700; }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        padding: 40px 20px;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .hero-cover { width: 200px; height: 200px; }
+      .hero-cover-icon { font-size: 4rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+
+      .nav-links { display: none; }
+      .nav-menu-btn { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 24px;
+        gap: 16px;
+      }
+
+      .platforms-inner { justify-content: center; text-align: center; }
+
+      .episode-card { flex-direction: column; }
+      .episode-thumb { width: 100%; height: 160px; }
+
+      .about-inner { flex-direction: column; text-align: center; }
+
+      .subscribe-form { flex-direction: column; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">The <span>Podcast</span></a>
+      <button class="nav-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="#episodes">Episodes</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#subscribe">Subscribe</a></li>
+        <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9790;</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <span class="hero-badge">New Episode Every Week</span>
+      <h1>Ideas Worth<br><span>Listening To</span></h1>
+      <p>Exploring the intersection of technology, culture, and creativity through thoughtful conversations with remarkable people.</p>
+      <div class="hero-actions">
+        <a href="#episodes" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          Latest Episode
+        </a>
+        <a href="#subscribe" class="btn btn-outline">Subscribe Now</a>
+      </div>
+    </div>
+    <div class="hero-cover">
+      <div class="hero-cover-icon">&#127911;</div>
+    </div>
+  </section>
+
+  <!-- Platform Links -->
+  <section class="platforms">
+    <div class="platforms-inner">
+      <span class="platforms-label">Listen on</span>
+      <a href="#" class="platform-link"><span class="platform-icon">&#127829;</span> Apple Podcasts</a>
+      <a href="#" class="platform-link"><span class="platform-icon">&#9654;</span> Spotify</a>
+      <a href="#" class="platform-link"><span class="platform-icon">&#9655;</span> YouTube</a>
+      <a href="#" class="platform-link"><span class="platform-icon">&#128251;</span> Google Podcasts</a>
+      <a href="rss.xml" class="platform-link"><span class="platform-icon">&#128246;</span> RSS Feed</a>
+    </div>
+  </section>
+
+  <!-- Episodes -->
+  <div class="section-header" id="episodes">
+    <h2>Latest Episodes</h2>
+    <a href="#">View All &rarr;</a>
+  </div>
+
+  <section class="episodes">
+    <!-- Episode 5 -->
+    <div class="episode-card">
+      <div class="episode-thumb">
+        <span class="episode-thumb-ep">05</span>
+        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep5')" aria-label="Play episode">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+      </div>
+      <div class="episode-info">
+        <div class="episode-meta">
+          <span class="episode-number">EP 05</span>
+          <span>March 20, 2026</span>
+          <span>45 min</span>
+        </div>
+        <h3>The Future of AI in Creative Industries</h3>
+        <p class="episode-desc">We sit down with leading researchers to explore how artificial intelligence is reshaping art, music, and storytelling. From generative tools to collaborative workflows, discover what's next for human creativity.</p>
+        <div class="audio-player" id="ep5">
+          <audio controls preload="none">
+            <source src="audio/ep05.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <!-- Episode 4 -->
+    <div class="episode-card">
+      <div class="episode-thumb">
+        <span class="episode-thumb-ep">04</span>
+        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep4')" aria-label="Play episode">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+      </div>
+      <div class="episode-info">
+        <div class="episode-meta">
+          <span class="episode-number">EP 04</span>
+          <span>March 13, 2026</span>
+          <span>38 min</span>
+        </div>
+        <h3>Building Products That People Actually Want</h3>
+        <p class="episode-desc">Product leaders from top startups share their frameworks for understanding user needs, validating ideas, and building products that create real value in people's lives.</p>
+        <div class="audio-player" id="ep4">
+          <audio controls preload="none">
+            <source src="audio/ep04.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <!-- Episode 3 -->
+    <div class="episode-card">
+      <div class="episode-thumb">
+        <span class="episode-thumb-ep">03</span>
+        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep3')" aria-label="Play episode">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+      </div>
+      <div class="episode-info">
+        <div class="episode-meta">
+          <span class="episode-number">EP 03</span>
+          <span>March 6, 2026</span>
+          <span>52 min</span>
+        </div>
+        <h3>The Science of Decision Making</h3>
+        <p class="episode-desc">Why do we make the choices we make? A deep dive into behavioral science, cognitive biases, and practical strategies for making better decisions in work and life.</p>
+        <div class="audio-player" id="ep3">
+          <audio controls preload="none">
+            <source src="audio/ep03.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <!-- Episode 2 -->
+    <div class="episode-card">
+      <div class="episode-thumb">
+        <span class="episode-thumb-ep">02</span>
+        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep2')" aria-label="Play episode">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+      </div>
+      <div class="episode-info">
+        <div class="episode-meta">
+          <span class="episode-number">EP 02</span>
+          <span>February 27, 2026</span>
+          <span>41 min</span>
+        </div>
+        <h3>Remote Work and the Future of Collaboration</h3>
+        <p class="episode-desc">How distributed teams are redefining workplace culture. We explore the tools, practices, and mindsets that enable effective collaboration across time zones and borders.</p>
+        <div class="audio-player" id="ep2">
+          <audio controls preload="none">
+            <source src="audio/ep02.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <!-- Episode 1 -->
+    <div class="episode-card">
+      <div class="episode-thumb">
+        <span class="episode-thumb-ep">01</span>
+        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep1')" aria-label="Play episode">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+      </div>
+      <div class="episode-info">
+        <div class="episode-meta">
+          <span class="episode-number">EP 01</span>
+          <span>February 20, 2026</span>
+          <span>35 min</span>
+        </div>
+        <h3>Welcome: Why We Started This Podcast</h3>
+        <p class="episode-desc">In our debut episode, we share the story behind the podcast, what we hope to explore, and why we believe conversations are the most powerful way to learn and grow together.</p>
+        <div class="audio-player" id="ep1">
+          <audio controls preload="none">
+            <source src="audio/ep01.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img">&#127908;</div>
+      <div class="about-text">
+        <h2>About the Podcast</h2>
+        <p>We bring you thoughtful conversations with innovators, creators, and thinkers who are shaping the world around us. Each episode dives deep into the ideas and stories that matter.</p>
+        <p>Whether you're commuting, working out, or winding down, our podcast is designed to spark curiosity and inspire new ways of thinking about the world.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe CTA -->
+  <section class="subscribe" id="subscribe">
+    <h2>Never Miss an Episode</h2>
+    <p>Subscribe to get notified when new episodes drop. Join thousands of listeners who tune in every week.</p>
+    <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+    <a href="rss.xml" class="rss-link">&#128246; Subscribe via RSS</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <strong>The Podcast</strong> &middot; &copy; 2026 All rights reserved.
+      </div>
+      <ul class="footer-links">
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent = next === 'dark' ? '\u2600' : '\u263E';
+    }
+
+    // Load saved theme
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+        if (saved === 'dark') {
+          document.querySelector('.theme-toggle').textContent = '\u2600';
+        }
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.querySelector('.theme-toggle').textContent = '\u2600';
+      }
+    })();
+
+    // Audio player toggle
+    function toggleAudio(btn, id) {
+      const player = document.getElementById(id);
+      const allPlayers = document.querySelectorAll('.audio-player');
+      allPlayers.forEach(p => {
+        if (p.id !== id) {
+          p.classList.remove('active');
+          const audio = p.querySelector('audio');
+          if (audio) audio.pause();
+        }
+      });
+      player.classList.toggle('active');
+      const audio = player.querySelector('audio');
+      if (player.classList.contains('active')) {
+        audio.play().catch(() => {});
+      } else {
+        audio.pause();
+      }
+    }
+
+    // Subscribe handler
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      alert('Thanks for subscribing! (This is a demo - connect to your email service)');
+      input.value = '';
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

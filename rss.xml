@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+  <channel>
+    <title>The Podcast</title>
+    <link>https://yourusername.github.io/podcast-site</link>
+    <language>en</language>
+    <description>Exploring the intersection of technology, culture, and creativity through thoughtful conversations with remarkable people.</description>
+    <atom:link href="https://yourusername.github.io/podcast-site/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <itunes:author>Your Name</itunes:author>
+    <itunes:summary>Exploring the intersection of technology, culture, and creativity through thoughtful conversations with remarkable people.</itunes:summary>
+    <itunes:owner>
+      <itunes:name>Your Name</itunes:name>
+      <itunes:email>you@example.com</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://yourusername.github.io/podcast-site/cover.jpg"/>
+    <itunes:category text="Technology"/>
+    <itunes:explicit>false</itunes:explicit>
+
+    <!-- Episode 5 -->
+    <item>
+      <title>EP 05: The Future of AI in Creative Industries</title>
+      <description>We sit down with leading researchers to explore how artificial intelligence is reshaping art, music, and storytelling.</description>
+      <pubDate>Fri, 20 Mar 2026 08:00:00 GMT</pubDate>
+      <enclosure url="https://yourusername.github.io/podcast-site/audio/ep05.mp3" length="0" type="audio/mpeg"/>
+      <itunes:duration>45:00</itunes:duration>
+      <itunes:episode>5</itunes:episode>
+      <guid isPermaLink="false">ep05-2026-03-20</guid>
+    </item>
+
+    <!-- Episode 4 -->
+    <item>
+      <title>EP 04: Building Products That People Actually Want</title>
+      <description>Product leaders from top startups share their frameworks for understanding user needs and building products that create real value.</description>
+      <pubDate>Fri, 13 Mar 2026 08:00:00 GMT</pubDate>
+      <enclosure url="https://yourusername.github.io/podcast-site/audio/ep04.mp3" length="0" type="audio/mpeg"/>
+      <itunes:duration>38:00</itunes:duration>
+      <itunes:episode>4</itunes:episode>
+      <guid isPermaLink="false">ep04-2026-03-13</guid>
+    </item>
+
+    <!-- Episode 3 -->
+    <item>
+      <title>EP 03: The Science of Decision Making</title>
+      <description>Why do we make the choices we make? A deep dive into behavioral science, cognitive biases, and practical strategies.</description>
+      <pubDate>Fri, 06 Mar 2026 08:00:00 GMT</pubDate>
+      <enclosure url="https://yourusername.github.io/podcast-site/audio/ep03.mp3" length="0" type="audio/mpeg"/>
+      <itunes:duration>52:00</itunes:duration>
+      <itunes:episode>3</itunes:episode>
+      <guid isPermaLink="false">ep03-2026-03-06</guid>
+    </item>
+
+    <!-- Episode 2 -->
+    <item>
+      <title>EP 02: Remote Work and the Future of Collaboration</title>
+      <description>How distributed teams are redefining workplace culture through tools, practices, and mindsets.</description>
+      <pubDate>Fri, 27 Feb 2026 08:00:00 GMT</pubDate>
+      <enclosure url="https://yourusername.github.io/podcast-site/audio/ep02.mp3" length="0" type="audio/mpeg"/>
+      <itunes:duration>41:00</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <guid isPermaLink="false">ep02-2026-02-27</guid>
+    </item>
+
+    <!-- Episode 1 -->
+    <item>
+      <title>EP 01: Welcome - Why We Started This Podcast</title>
+      <description>In our debut episode, we share the story behind the podcast and what we hope to explore together.</description>
+      <pubDate>Fri, 20 Feb 2026 08:00:00 GMT</pubDate>
+      <enclosure url="https://yourusername.github.io/podcast-site/audio/ep01.mp3" length="0" type="audio/mpeg"/>
+      <itunes:duration>35:00</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <guid isPermaLink="false">ep01-2026-02-20</guid>
+    </item>
+
+  </channel>
+</rss>
