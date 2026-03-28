@@ -142,7 +142,21 @@
         <div class="episode-meta"><span class="episode-number">${e.ep}</span><span>${e.date}</span><span>${e.dur}</span></div>
         <h3><a href="${AP}${e.ap}" target="_blank">${e.title}</a></h3>
         <p class="episode-desc">${e.desc}</p>
-        <div class="episode-player"><audio controls preload="none"><source src="${e.audio}"></audio></div>
+        <div class="episode-player">
+          <audio preload="none" data-idx="${i}"><source src="${e.audio}"></audio>
+          <div class="custom-player">
+            <button class="player-play" onclick="togglePlay(${i})" aria-label="Play">
+              <svg class="icon-play" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+              <svg class="icon-pause" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+            </button>
+            <div class="player-middle">
+              <div class="player-track" onclick="seekAudio(event, ${i})">
+                <div class="player-progress" id="prog-${i}"></div>
+              </div>
+            </div>
+            <span class="player-time" id="time-${i}">0:00 / ${e.dur.replace(' min',':00')}</span>
+          </div>
+        </div>
       </div>
     </div>`;
   });
@@ -258,6 +272,60 @@
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
     });
+
+    // ===== Custom Audio Player =====
+    let currentAudio = null;
+
+    function fmt(s) {
+      if (isNaN(s)) return '0:00';
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    function togglePlay(idx) {
+      const audio = document.querySelector(`audio[data-idx="${idx}"]`);
+      const btn = audio.closest('.episode-player').querySelector('.player-play');
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        const prevBtn = currentAudio.closest('.episode-player').querySelector('.player-play');
+        if (prevBtn) prevBtn.classList.remove('playing');
+      }
+      if (audio.paused) {
+        audio.play().catch(() => {});
+        btn.classList.add('playing');
+        currentAudio = audio;
+      } else {
+        audio.pause();
+        btn.classList.remove('playing');
+      }
+    }
+
+    function seekAudio(e, idx) {
+      const audio = document.querySelector(`audio[data-idx="${idx}"]`);
+      const rect = e.currentTarget.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      if (audio.duration) {
+        audio.currentTime = pct * audio.duration;
+        if (audio.paused) togglePlay(idx);
+      }
+    }
+
+    document.addEventListener('timeupdate', function(e) {
+      if (e.target.tagName !== 'AUDIO') return;
+      const idx = e.target.dataset.idx;
+      const prog = document.getElementById('prog-' + idx);
+      const time = document.getElementById('time-' + idx);
+      if (!prog) return;
+      prog.style.width = (e.target.currentTime / e.target.duration) * 100 + '%';
+      time.textContent = fmt(e.target.currentTime) + ' / ' + fmt(e.target.duration);
+    }, true);
+
+    document.addEventListener('ended', function(e) {
+      if (e.target.tagName !== 'AUDIO') return;
+      const btn = e.target.closest('.episode-player').querySelector('.player-play');
+      if (btn) btn.classList.remove('playing');
+    }, true);
   </script>
 </body>
 </html>

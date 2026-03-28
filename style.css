@@ -186,10 +186,48 @@ nav {
 .episode-info h3 a:hover { color: var(--accent); }
 
 .episode-player {
-  margin-top: 10px;
+  margin-top: 12px;
 }
-.episode-player audio {
-  width: 100%; height: 36px; border-radius: 6px;
+.episode-player audio { display: none; }
+
+.custom-player {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px; background: var(--bg-secondary); border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.player-play {
+  width: 36px; height: 36px; border-radius: 50%; border: none;
+  background: var(--accent); color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background 0.2s, transform 0.1s;
+}
+.player-play:hover { background: var(--accent-hover); }
+.player-play:active { transform: scale(0.95); }
+.player-play svg { width: 14px; height: 14px; fill: #fff; }
+.player-play .icon-pause { display: none; }
+.player-play.playing .icon-play { display: none; }
+.player-play.playing .icon-pause { display: block; }
+
+.player-middle { flex: 1; min-width: 0; }
+
+.player-track {
+  width: 100%; height: 6px; border-radius: 3px;
+  background: var(--border); cursor: pointer; position: relative;
+  overflow: hidden;
+}
+.player-track:hover { height: 8px; }
+
+.player-progress {
+  height: 100%; background: var(--accent); border-radius: 3px;
+  width: 0%; transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+.player-time {
+  font-size: 0.72rem; color: var(--text-secondary);
+  font-variant-numeric: tabular-nums; flex-shrink: 0;
+  min-width: 80px; text-align: right;
 }
 
 /* ===== About ===== */
