@@ -231,6 +231,53 @@ nav {
   min-width: 80px; text-align: right; opacity: 0.7;
 }
 
+/* ===== Episode Actions ===== */
+.episode-actions {
+  display: flex; align-items: center; gap: 16px; margin-top: 10px;
+  padding-top: 8px; border-top: 1px solid var(--border);
+}
+
+.ep-action {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  font-size: 0.78rem; color: var(--text-secondary);
+  padding: 4px 8px; border-radius: 6px; transition: all 0.2s;
+  font-family: inherit;
+}
+.ep-action:hover { background: var(--accent-light); color: var(--accent); }
+.ep-action svg { width: 16px; height: 16px; transition: transform 0.2s; }
+
+.ep-action.liked { color: var(--accent); }
+.ep-action.liked svg { fill: var(--accent); transform: scale(1.15); }
+
+.ep-action .count { font-variant-numeric: tabular-nums; }
+
+/* Share dropdown */
+.share-wrap { position: relative; }
+.share-menu {
+  display: none; position: absolute; bottom: 100%; left: 0;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 0; min-width: 160px;
+  box-shadow: var(--shadow-lg); z-index: 10; margin-bottom: 6px;
+}
+.share-menu.open { display: block; }
+.share-menu a, .share-menu button {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 8px 14px; font-size: 0.82rem; color: var(--text);
+  background: none; border: none; cursor: pointer; text-align: left;
+  font-family: inherit; transition: background 0.15s;
+}
+.share-menu a:hover, .share-menu button:hover { background: var(--bg-secondary); }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--text); color: var(--bg); padding: 10px 20px;
+  border-radius: 8px; font-size: 0.85rem; z-index: 1000;
+  opacity: 0; transition: opacity 0.3s; pointer-events: none;
+}
+.toast.show { opacity: 1; }
+
 /* ===== About ===== */
 .about { background: var(--bg-secondary); border-top: 1px solid var(--border); }
 .about-inner {
