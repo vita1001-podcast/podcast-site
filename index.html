@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Podcast - Your Podcast Name</title>
-  <meta name="description" content="A podcast about ideas, stories, and conversations that matter.">
+  <title>VITA1001 Modern Pharma</title>
+  <meta name="description" content="A podcast featuring modern pharma career journeys. Stories from the drug development world — from discovery to market.">
   <link rel="alternate" type="application/rss+xml" title="Podcast RSS Feed" href="rss.xml">
   <style>
-    /* ===== Reset & Base ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --accent: #e11d48;
-      --accent-hover: #be123c;
+      --accent: #0e7c6b;
+      --accent-hover: #0a5f52;
+      --accent-light: rgba(14,124,107,0.1);
       --bg: #ffffff;
       --bg-secondary: #f8f8f8;
       --text: #1a1a1a;
@@ -35,6 +35,7 @@
       --card-bg: #1e1e1e;
       --shadow: 0 1px 3px rgba(0,0,0,0.3);
       --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
+      --accent-light: rgba(14,124,107,0.15);
     }
 
     html { scroll-behavior: smooth; }
@@ -55,14 +56,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--bg);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
       background: rgba(255,255,255,0.9);
     }
-    [data-theme="dark"] nav {
-      background: rgba(15,15,15,0.9);
-    }
+    [data-theme="dark"] nav { background: rgba(15,15,15,0.9); }
 
     .nav-inner {
       max-width: 1100px;
@@ -75,17 +73,17 @@
     }
 
     .nav-logo {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
 
-    .nav-logo span { color: var(--accent); }
+    .nav-logo .vita { color: var(--accent); }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
       list-style: none;
     }
 
@@ -98,18 +96,19 @@
 
     .nav-links a:hover { color: var(--accent); }
 
-    .theme-toggle {
+    .nav-btn {
       background: none;
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 6px 10px;
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 0.85rem;
       color: var(--text);
       transition: border-color 0.2s;
+      font-weight: 500;
     }
 
-    .theme-toggle:hover { border-color: var(--accent); }
+    .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
 
     .nav-menu-btn {
       display: none;
@@ -134,7 +133,7 @@
 
     .hero-badge {
       display: inline-block;
-      background: rgba(225,29,72,0.1);
+      background: var(--accent-light);
       color: var(--accent);
       font-size: 0.8rem;
       font-weight: 600;
@@ -146,21 +145,30 @@
     }
 
     .hero h1 {
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-weight: 900;
       line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 20px;
     }
 
-    .hero h1 span { color: var(--accent); }
+    .hero h1 .accent { color: var(--accent); }
 
-    .hero p {
+    .hero-subtitle {
       font-family: var(--font-serif);
       font-size: 1.15rem;
       color: var(--text-secondary);
-      max-width: 480px;
+      max-width: 520px;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 520px;
       margin-bottom: 32px;
+      line-height: 1.7;
     }
 
     .hero-actions {
@@ -182,11 +190,7 @@
       transition: all 0.2s;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
+    .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
     .btn-outline {
@@ -194,7 +198,6 @@
       color: var(--text);
       border: 1.5px solid var(--border);
     }
-
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     .hero-cover {
@@ -202,7 +205,7 @@
       width: 320px;
       height: 320px;
       border-radius: 24px;
-      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      background: linear-gradient(135deg, #0e7c6b, #1a5276);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -215,13 +218,29 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 60%);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 60%);
     }
 
-    .hero-cover-icon {
-      font-size: 6rem;
-      color: rgba(255,255,255,0.9);
+    .hero-cover-text {
       z-index: 1;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-cover-text .logo-name {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .hero-cover-text .logo-sub {
+      font-size: 0.85rem;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-top: 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     /* ===== Platform Links ===== */
@@ -325,7 +344,7 @@
       width: 160px;
       height: 120px;
       border-radius: 8px;
-      background: linear-gradient(135deg, #374151, #111827);
+      background: linear-gradient(135deg, #0e7c6b, #1a5276);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -375,7 +394,7 @@
     }
 
     .episode-number {
-      background: rgba(225,29,72,0.1);
+      background: var(--accent-light);
       color: var(--accent);
       padding: 2px 8px;
       border-radius: 4px;
@@ -401,7 +420,6 @@
       overflow: hidden;
     }
 
-    /* ===== Audio Player ===== */
     .audio-player {
       display: none;
       margin-top: 16px;
@@ -411,11 +429,7 @@
     }
 
     .audio-player.active { display: block; }
-
-    .audio-player audio {
-      width: 100%;
-      height: 40px;
-    }
+    .audio-player audio { width: 100%; height: 40px; }
 
     /* ===== About ===== */
     .about {
@@ -437,7 +451,7 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #e11d48, #7c3aed);
+      background: linear-gradient(135deg, #0e7c6b, #1a5276);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -505,7 +519,6 @@
     }
 
     .subscribe-form input:focus { border-color: var(--accent); }
-
     .subscribe-form input::placeholder { color: var(--text-secondary); }
 
     .rss-link {
@@ -565,11 +578,10 @@
         gap: 32px;
         text-align: center;
       }
-
       .hero-cover { width: 200px; height: 200px; }
-      .hero-cover-icon { font-size: 4rem; }
+      .hero-cover-text .logo-name { font-size: 1.5rem; }
       .hero h1 { font-size: 2.2rem; }
-      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-subtitle, .hero-desc { margin-left: auto; margin-right: auto; }
       .hero-actions { justify-content: center; }
 
       .nav-links { display: none; }
@@ -588,14 +600,10 @@
       }
 
       .platforms-inner { justify-content: center; text-align: center; }
-
       .episode-card { flex-direction: column; }
       .episode-thumb { width: 100%; height: 160px; }
-
       .about-inner { flex-direction: column; text-align: center; }
-
       .subscribe-form { flex-direction: column; }
-
       .footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
@@ -604,13 +612,14 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="nav-logo">The <span>Podcast</span></a>
+      <a href="#" class="nav-logo"><span class="vita">VITA1001</span> Modern Pharma</a>
       <button class="nav-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
       <ul class="nav-links">
-        <li><a href="#episodes">Episodes</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#subscribe">Subscribe</a></li>
-        <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9790;</button></li>
+        <li><a href="#episodes" data-en="Episodes" data-zh="&#21095;&#38598;">Episodes</a></li>
+        <li><a href="#about" data-en="About" data-zh="&#20851;&#20110;">About</a></li>
+        <li><a href="#subscribe" data-en="Subscribe" data-zh="&#35746;&#38405;">Subscribe</a></li>
+        <li><button class="nav-btn" onclick="toggleLang()" id="lang-toggle">&#20013;&#25991;</button></li>
+        <li><button class="nav-btn" onclick="toggleTheme()" id="theme-toggle" aria-label="Toggle theme">&#9790;</button></li>
       </ul>
     </div>
   </nav>
@@ -618,38 +627,42 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
-      <span class="hero-badge">New Episode Every Week</span>
-      <h1>Ideas Worth<br><span>Listening To</span></h1>
-      <p>Exploring the intersection of technology, culture, and creativity through thoughtful conversations with remarkable people.</p>
+      <span class="hero-badge" data-en="Modern Pharma Career Journeys" data-zh="&#29616;&#20195;&#21307;&#33647;&#32844;&#19994;&#20043;&#26053;">Modern Pharma Career Journeys</span>
+      <h1>VITA1001<br><span class="accent">Modern Pharma</span></h1>
+      <p class="hero-subtitle" data-en="Stories from the drug development world &mdash; from discovery to market." data-zh="&#33647;&#29289;&#24320;&#21457;&#19990;&#30028;&#30340;&#25925;&#20107; &mdash; &#20174;&#21457;&#29616;&#21040;&#19978;&#24066;&#12290;">Stories from the drug development world &mdash; from discovery to market.</p>
+      <p class="hero-desc" data-en="VITA1001 Modern Pharma sits down with scientists, clinicians, CMC and QA/QC professionals, project managers and more to explore how medicines move from idea to patient &mdash; and the people behind every step." data-zh="VITA1001 Modern Pharma &#19982;&#31185;&#23398;&#23478;&#12289;&#20020;&#24202;&#21307;&#29983;&#12289;CMC &#21644; QA/QC &#19987;&#19994;&#20154;&#22763;&#12289;&#39033;&#30446;&#32463;&#29702;&#31561;&#28145;&#20837;&#23545;&#35805;&#65292;&#25506;&#32034;&#33647;&#29289;&#22914;&#20309;&#20174;&#21019;&#24847;&#36208;&#21521;&#24739;&#32773; &mdash; &#20197;&#21450;&#27599;&#19968;&#27493;&#32972;&#21518;&#30340;&#20154;&#12290;">VITA1001 Modern Pharma sits down with scientists, clinicians, CMC and QA/QC professionals, project managers and more to explore how medicines move from idea to patient &mdash; and the people behind every step.</p>
       <div class="hero-actions">
         <a href="#episodes" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-          Latest Episode
+          <span data-en="Latest Episode" data-zh="&#26368;&#26032;&#21095;&#38598;">Latest Episode</span>
         </a>
-        <a href="#subscribe" class="btn btn-outline">Subscribe Now</a>
+        <a href="#subscribe" class="btn btn-outline" data-en="Subscribe Now" data-zh="&#31435;&#21363;&#35746;&#38405;">Subscribe Now</a>
       </div>
     </div>
     <div class="hero-cover">
-      <div class="hero-cover-icon">&#127911;</div>
+      <div class="hero-cover-text">
+        <div class="logo-name">VITA1001</div>
+        <div class="logo-sub">Modern Pharma</div>
+      </div>
     </div>
   </section>
 
   <!-- Platform Links -->
   <section class="platforms">
     <div class="platforms-inner">
-      <span class="platforms-label">Listen on</span>
-      <a href="#" class="platform-link"><span class="platform-icon">&#127829;</span> Apple Podcasts</a>
-      <a href="#" class="platform-link"><span class="platform-icon">&#9654;</span> Spotify</a>
-      <a href="#" class="platform-link"><span class="platform-icon">&#9655;</span> YouTube</a>
-      <a href="#" class="platform-link"><span class="platform-icon">&#128251;</span> Google Podcasts</a>
-      <a href="rss.xml" class="platform-link"><span class="platform-icon">&#128246;</span> RSS Feed</a>
+      <span class="platforms-label" data-en="Listen on" data-zh="&#25910;&#21548;&#24179;&#21488;">Listen on</span>
+      <a href="#" class="platform-link">Apple Podcasts</a>
+      <a href="#" class="platform-link">Spotify</a>
+      <a href="#" class="platform-link">YouTube</a>
+      <a href="#" class="platform-link">Google Podcasts</a>
+      <a href="rss.xml" class="platform-link">RSS Feed</a>
     </div>
   </section>
 
   <!-- Episodes -->
   <div class="section-header" id="episodes">
-    <h2>Latest Episodes</h2>
-    <a href="#">View All &rarr;</a>
+    <h2 data-en="Latest Episodes" data-zh="&#26368;&#26032;&#21095;&#38598;">Latest Episodes</h2>
+    <a href="#" data-en="View All &rarr;" data-zh="&#26597;&#30475;&#20840;&#37096; &rarr;">View All &rarr;</a>
   </div>
 
   <section class="episodes">
@@ -667,13 +680,10 @@
           <span>March 20, 2026</span>
           <span>45 min</span>
         </div>
-        <h3>The Future of AI in Creative Industries</h3>
-        <p class="episode-desc">We sit down with leading researchers to explore how artificial intelligence is reshaping art, music, and storytelling. From generative tools to collaborative workflows, discover what's next for human creativity.</p>
+        <h3 data-en="From Bench to IND: A CMC Scientist's Journey" data-zh="&#20174;&#23454;&#39564;&#21488;&#21040; IND &#30003;&#25253;&#65306;&#19968;&#20301; CMC &#31185;&#23398;&#23478;&#30340;&#26053;&#31243;">From Bench to IND: A CMC Scientist's Journey</h3>
+        <p class="episode-desc" data-en="We talk with a CMC scientist about the path from early-stage formulation development through IND-enabling studies. Learn how chemistry, manufacturing, and controls shape the drug development timeline." data-zh="&#25105;&#20204;&#19982;&#19968;&#20301; CMC &#31185;&#23398;&#23478;&#23545;&#35805;&#65292;&#20102;&#35299;&#20174;&#26089;&#26399;&#21046;&#21058;&#24320;&#21457;&#21040; IND &#30003;&#25253;&#30740;&#31350;&#30340;&#20840;&#36807;&#31243;&#12290;&#25506;&#32034;&#21270;&#23398;&#12289;&#29983;&#20135;&#21644;&#36136;&#37327;&#25511;&#21046;&#22914;&#20309;&#24433;&#21709;&#33647;&#29289;&#24320;&#21457;&#26102;&#38388;&#32447;&#12290;">We talk with a CMC scientist about the path from early-stage formulation development through IND-enabling studies. Learn how chemistry, manufacturing, and controls shape the drug development timeline.</p>
         <div class="audio-player" id="ep5">
-          <audio controls preload="none">
-            <source src="audio/ep05.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+          <audio controls preload="none"><source src="audio/ep05.mp3" type="audio/mpeg"></audio>
         </div>
       </div>
     </div>
@@ -692,13 +702,10 @@
           <span>March 13, 2026</span>
           <span>38 min</span>
         </div>
-        <h3>Building Products That People Actually Want</h3>
-        <p class="episode-desc">Product leaders from top startups share their frameworks for understanding user needs, validating ideas, and building products that create real value in people's lives.</p>
+        <h3 data-en="Life as a Clinical Research Associate in Oncology" data-zh="&#32959;&#30244;&#20020;&#24202;&#30740;&#31350;&#21161;&#29702;&#30340;&#26085;&#24120;">Life as a Clinical Research Associate in Oncology</h3>
+        <p class="episode-desc" data-en="A CRA shares what it's really like to monitor oncology trials across multiple sites. From protocol deviations to patient enrollment challenges, get an inside look at clinical operations." data-zh="&#19968;&#20301;&#20020;&#24202;&#30740;&#31350;&#21161;&#29702;&#20998;&#20139;&#22312;&#22810;&#20010;&#20013;&#24515;&#30417;&#26597;&#32959;&#30244;&#20020;&#24202;&#35797;&#39564;&#30340;&#30495;&#23454;&#20307;&#39564;&#12290;&#20174;&#26041;&#26696;&#20559;&#31163;&#21040;&#24739;&#32773;&#20837;&#32452;&#25361;&#25112;&#65292;&#28145;&#20837;&#20102;&#35299;&#20020;&#24202;&#36816;&#33829;&#12290;">A CRA shares what it's really like to monitor oncology trials across multiple sites. From protocol deviations to patient enrollment challenges, get an inside look at clinical operations.</p>
         <div class="audio-player" id="ep4">
-          <audio controls preload="none">
-            <source src="audio/ep04.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+          <audio controls preload="none"><source src="audio/ep04.mp3" type="audio/mpeg"></audio>
         </div>
       </div>
     </div>
@@ -717,13 +724,10 @@
           <span>March 6, 2026</span>
           <span>52 min</span>
         </div>
-        <h3>The Science of Decision Making</h3>
-        <p class="episode-desc">Why do we make the choices we make? A deep dive into behavioral science, cognitive biases, and practical strategies for making better decisions in work and life.</p>
+        <h3 data-en="QA/QC in Biologics: Ensuring Every Batch Counts" data-zh="&#29983;&#29289;&#21046;&#33647;&#30340; QA/QC&#65306;&#30830;&#20445;&#27599;&#19968;&#25209;&#27425;&#37117;&#21512;&#26684;">QA/QC in Biologics: Ensuring Every Batch Counts</h3>
+        <p class="episode-desc" data-en="Quality professionals discuss the unique challenges of QA/QC in biologics manufacturing. From cell line characterization to release testing, discover what it takes to maintain GMP compliance." data-zh="&#36136;&#37327;&#19987;&#19994;&#20154;&#22763;&#35752;&#35770;&#29983;&#29289;&#21046;&#33647;&#29983;&#20135;&#20013; QA/QC &#30340;&#29420;&#29305;&#25361;&#25112;&#12290;&#20174;&#32454;&#32990;&#31995;&#34920;&#24449;&#21040;&#25918;&#34892;&#26816;&#27979;&#65292;&#20102;&#35299; GMP &#21512;&#35268;&#30340;&#20851;&#38190;&#12290;">Quality professionals discuss the unique challenges of QA/QC in biologics manufacturing. From cell line characterization to release testing, discover what it takes to maintain GMP compliance.</p>
         <div class="audio-player" id="ep3">
-          <audio controls preload="none">
-            <source src="audio/ep03.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+          <audio controls preload="none"><source src="audio/ep03.mp3" type="audio/mpeg"></audio>
         </div>
       </div>
     </div>
@@ -742,13 +746,10 @@
           <span>February 27, 2026</span>
           <span>41 min</span>
         </div>
-        <h3>Remote Work and the Future of Collaboration</h3>
-        <p class="episode-desc">How distributed teams are redefining workplace culture. We explore the tools, practices, and mindsets that enable effective collaboration across time zones and borders.</p>
+        <h3 data-en="Project Management in Pharma: Herding Cats Across Functions" data-zh="&#21307;&#33647;&#39033;&#30446;&#31649;&#29702;&#65306;&#36328;&#37096;&#38376;&#21327;&#20316;&#30340;&#33402;&#26415;">Project Management in Pharma: Herding Cats Across Functions</h3>
+        <p class="episode-desc" data-en="A pharma project manager reveals how they coordinate between R&amp;D, regulatory, commercial, and manufacturing teams to keep drug programs on track from Phase I through launch." data-zh="&#19968;&#20301;&#21307;&#33647;&#39033;&#30446;&#32463;&#29702;&#25581;&#31192;&#22914;&#20309;&#21327;&#35843;&#30740;&#21457;&#12289;&#27880;&#20876;&#12289;&#21830;&#19994;&#21270;&#21644;&#29983;&#20135;&#22242;&#38431;&#65292;&#30830;&#20445;&#33647;&#29289;&#39033;&#30446;&#20174;&#19968;&#26399;&#20020;&#24202;&#21040;&#19978;&#24066;&#39034;&#21033;&#25512;&#36827;&#12290;">A pharma project manager reveals how they coordinate between R&amp;D, regulatory, commercial, and manufacturing teams to keep drug programs on track from Phase I through launch.</p>
         <div class="audio-player" id="ep2">
-          <audio controls preload="none">
-            <source src="audio/ep02.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+          <audio controls preload="none"><source src="audio/ep02.mp3" type="audio/mpeg"></audio>
         </div>
       </div>
     </div>
@@ -767,13 +768,10 @@
           <span>February 20, 2026</span>
           <span>35 min</span>
         </div>
-        <h3>Welcome: Why We Started This Podcast</h3>
-        <p class="episode-desc">In our debut episode, we share the story behind the podcast, what we hope to explore, and why we believe conversations are the most powerful way to learn and grow together.</p>
+        <h3 data-en="Welcome: Why We're Telling Pharma's Untold Stories" data-zh="&#27426;&#36814;&#65306;&#20026;&#20160;&#20040;&#25105;&#20204;&#35201;&#35762;&#36848;&#21307;&#33647;&#34892;&#19994;&#30340;&#25925;&#20107;">Welcome: Why We're Telling Pharma's Untold Stories</h3>
+        <p class="episode-desc" data-en="In our debut episode, we share why we started VITA1001 Modern Pharma and what we hope to explore — the real career paths, daily challenges, and human stories behind bringing medicines to patients." data-zh="&#22312;&#39318;&#26399;&#33410;&#30446;&#20013;&#65292;&#25105;&#20204;&#20998;&#20139;&#20102;&#21019;&#21150; VITA1001 Modern Pharma &#30340;&#21021;&#34935; &mdash; &#25506;&#32034;&#30495;&#23454;&#30340;&#32844;&#19994;&#36335;&#24452;&#12289;&#26085;&#24120;&#25361;&#25112;&#65292;&#20197;&#21450;&#23558;&#33647;&#29289;&#36865;&#36798;&#24739;&#32773;&#32972;&#21518;&#30340;&#20154;&#30340;&#25925;&#20107;&#12290;">In our debut episode, we share why we started VITA1001 Modern Pharma and what we hope to explore — the real career paths, daily challenges, and human stories behind bringing medicines to patients.</p>
         <div class="audio-player" id="ep1">
-          <audio controls preload="none">
-            <source src="audio/ep01.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+          <audio controls preload="none"><source src="audio/ep01.mp3" type="audio/mpeg"></audio>
         </div>
       </div>
     </div>
@@ -782,75 +780,95 @@
   <!-- About -->
   <section class="about" id="about">
     <div class="about-inner">
-      <div class="about-img">&#127908;</div>
+      <div class="about-img">&#9883;</div>
       <div class="about-text">
-        <h2>About the Podcast</h2>
-        <p>We bring you thoughtful conversations with innovators, creators, and thinkers who are shaping the world around us. Each episode dives deep into the ideas and stories that matter.</p>
-        <p>Whether you're commuting, working out, or winding down, our podcast is designed to spark curiosity and inspire new ways of thinking about the world.</p>
+        <h2 data-en="About the Podcast" data-zh="&#20851;&#20110;&#25105;&#20204;">About the Podcast</h2>
+        <p data-en="VITA1001 Modern Pharma is a podcast featuring modern pharma career journeys. We sit down with the people who make drug development happen — scientists, clinicians, CMC and QA/QC professionals, project managers, and more." data-zh="VITA1001 Modern Pharma &#26159;&#19968;&#26723;&#32858;&#28966;&#29616;&#20195;&#21307;&#33647;&#32844;&#19994;&#26053;&#31243;&#30340;&#25773;&#23458;&#12290;&#25105;&#20204;&#19982;&#25512;&#21160;&#33647;&#29289;&#24320;&#21457;&#30340;&#20154;&#20204;&#28145;&#20837;&#23545;&#35805; &mdash; &#31185;&#23398;&#23478;&#12289;&#20020;&#24202;&#21307;&#29983;&#12289;CMC &#21644; QA/QC &#19987;&#19994;&#20154;&#22763;&#12289;&#39033;&#30446;&#32463;&#29702;&#31561;&#12290;">VITA1001 Modern Pharma is a podcast featuring modern pharma career journeys. We sit down with the people who make drug development happen — scientists, clinicians, CMC and QA/QC professionals, project managers, and more.</p>
+        <p data-en="Each episode explores how medicines move from idea to patient, and the real stories of the people behind every step of the journey." data-zh="&#27599;&#26399;&#33410;&#30446;&#25506;&#32034;&#33647;&#29289;&#22914;&#20309;&#20174;&#21019;&#24847;&#36208;&#21521;&#24739;&#32773;&#65292;&#20197;&#21450;&#36825;&#27573;&#26053;&#31243;&#27599;&#19968;&#27493;&#32972;&#21518;&#30340;&#30495;&#23454;&#25925;&#20107;&#12290;">Each episode explores how medicines move from idea to patient, and the real stories of the people behind every step of the journey.</p>
       </div>
     </div>
   </section>
 
   <!-- Subscribe CTA -->
   <section class="subscribe" id="subscribe">
-    <h2>Never Miss an Episode</h2>
-    <p>Subscribe to get notified when new episodes drop. Join thousands of listeners who tune in every week.</p>
+    <h2 data-en="Never Miss an Episode" data-zh="&#19981;&#38169;&#36807;&#27599;&#19968;&#26399;">Never Miss an Episode</h2>
+    <p data-en="Subscribe to get notified when new episodes drop. Join our community of pharma professionals and curious minds." data-zh="&#35746;&#38405;&#21363;&#21487;&#22312;&#26032;&#21095;&#38598;&#21457;&#24067;&#26102;&#25910;&#21040;&#36890;&#30693;&#12290;&#21152;&#20837;&#25105;&#20204;&#30340;&#21307;&#33647;&#19987;&#19994;&#20154;&#22763;&#31038;&#21306;&#12290;">Subscribe to get notified when new episodes drop. Join our community of pharma professionals and curious minds.</p>
     <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit" class="btn btn-primary">Subscribe</button>
+      <input type="email" id="subscribe-input" placeholder="Enter your email" data-en-placeholder="Enter your email" data-zh-placeholder="&#36755;&#20837;&#20320;&#30340;&#37038;&#31665;" required>
+      <button type="submit" class="btn btn-primary" data-en="Subscribe" data-zh="&#35746;&#38405;">Subscribe</button>
     </form>
-    <a href="rss.xml" class="rss-link">&#128246; Subscribe via RSS</a>
+    <a href="rss.xml" class="rss-link" data-en="&#128246; Subscribe via RSS" data-zh="&#128246; &#36890;&#36807; RSS &#35746;&#38405;">&#128246; Subscribe via RSS</a>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-left">
-        <strong>The Podcast</strong> &middot; &copy; 2026 All rights reserved.
+        <strong>VITA1001 Modern Pharma</strong> &middot; &copy; 2026
       </div>
       <ul class="footer-links">
         <li><a href="#">Twitter</a></li>
         <li><a href="#">Instagram</a></li>
         <li><a href="#">YouTube</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#" data-en="Contact" data-zh="&#32852;&#31995;">Contact</a></li>
       </ul>
     </div>
   </footer>
 
   <script>
-    // Theme toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      document.querySelector('.theme-toggle').textContent = next === 'dark' ? '\u2600' : '\u263E';
+    // ===== Language Toggle =====
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.getElementById('lang-toggle').textContent = lang === 'en' ? '\u4e2d\u6587' : 'EN';
+
+      document.querySelectorAll('[data-en][data-zh]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+
+      const subInput = document.getElementById('subscribe-input');
+      if (subInput) {
+        subInput.placeholder = subInput.getAttribute('data-' + lang + '-placeholder');
+      }
     }
 
-    // Load saved theme
+    function toggleLang() {
+      setLang(currentLang === 'en' ? 'zh' : 'en');
+    }
+
+    // ===== Theme Toggle =====
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.getElementById('theme-toggle').textContent = next === 'dark' ? '\u2600' : '\u263E';
+    }
+
+    // ===== Init =====
     (function() {
-      const saved = localStorage.getItem('theme');
-      if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
-        if (saved === 'dark') {
-          document.querySelector('.theme-toggle').textContent = '\u2600';
-        }
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') document.getElementById('theme-toggle').textContent = '\u2600';
       } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.setAttribute('data-theme', 'dark');
-        document.querySelector('.theme-toggle').textContent = '\u2600';
+        document.getElementById('theme-toggle').textContent = '\u2600';
       }
+      if (currentLang !== 'en') setLang(currentLang);
     })();
 
-    // Audio player toggle
+    // ===== Audio Player =====
     function toggleAudio(btn, id) {
       const player = document.getElementById(id);
-      const allPlayers = document.querySelectorAll('.audio-player');
-      allPlayers.forEach(p => {
+      document.querySelectorAll('.audio-player').forEach(p => {
         if (p.id !== id) {
           p.classList.remove('active');
-          const audio = p.querySelector('audio');
-          if (audio) audio.pause();
+          const a = p.querySelector('audio');
+          if (a) a.pause();
         }
       });
       player.classList.toggle('active');
@@ -862,15 +880,18 @@
       }
     }
 
-    // Subscribe handler
+    // ===== Subscribe =====
     function handleSubscribe(e) {
       e.preventDefault();
       const input = e.target.querySelector('input');
-      alert('Thanks for subscribing! (This is a demo - connect to your email service)');
+      const msg = currentLang === 'zh'
+        ? '\u8c22\u8c22\u8ba2\u9605\uff01\uff08\u8fd9\u662f\u6f14\u793a \u2014 \u8bf7\u8fde\u63a5\u60a8\u7684\u90ae\u4ef6\u670d\u52a1\uff09'
+        : 'Thanks for subscribing! (Demo \u2014 connect your email service)';
+      alert(msg);
       input.value = '';
     }
 
-    // Close mobile menu on link click
+    // ===== Mobile Menu =====
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.querySelector('.nav-links').classList.remove('open');
