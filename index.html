@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VITA1001 Modern Pharma</title>
   <meta name="description" content="A podcast featuring modern pharma career journeys. Stories from the drug development world — from discovery to market.">
-  <link rel="alternate" type="application/rss+xml" title="Podcast RSS Feed" href="rss.xml">
+  <link rel="alternate" type="application/rss+xml" title="VITA1001 Modern Pharma RSS" href="https://anchor.fm/s/f526e620/podcast/rss">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -51,11 +51,9 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* ===== Navigation ===== */
+    /* ===== Nav ===== */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
       background: rgba(255,255,255,0.9);
@@ -63,545 +61,194 @@
     [data-theme="dark"] nav { background: rgba(15,15,15,0.9); }
 
     .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
     }
 
-    .nav-logo {
-      font-size: 1.2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
+    .nav-logo { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; }
     .nav-logo .vita { color: var(--accent); }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: color 0.2s;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
     .nav-btn {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 6px 10px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      color: var(--text);
-      transition: border-color 0.2s;
-      font-weight: 500;
+      background: none; border: 1px solid var(--border); border-radius: 8px;
+      padding: 6px 10px; cursor: pointer; font-size: 0.85rem; color: var(--text);
+      font-weight: 500; transition: border-color 0.2s;
     }
-
     .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    .nav-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text);
-    }
+    .nav-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text); }
 
     /* ===== Hero ===== */
     .hero {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-      display: flex;
-      align-items: center;
-      gap: 60px;
+      max-width: 1100px; margin: 0 auto; padding: 80px 24px 60px;
+      display: flex; align-items: center; gap: 60px;
     }
-
     .hero-text { flex: 1; }
 
     .hero-badge {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      display: inline-block; background: var(--accent-light); color: var(--accent);
+      font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 20px;
+      margin-bottom: 16px; letter-spacing: 0.03em;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-    }
-
+    .hero h1 { font-size: 3rem; font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; }
     .hero h1 .accent { color: var(--accent); }
 
     .hero-subtitle {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      color: var(--text-secondary);
-      max-width: 520px;
-      margin-bottom: 12px;
-      font-style: italic;
+      font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-secondary);
+      max-width: 520px; margin-bottom: 12px; font-style: italic;
     }
 
     .hero-desc {
-      font-size: 1rem;
-      color: var(--text-secondary);
-      max-width: 520px;
-      margin-bottom: 32px;
-      line-height: 1.7;
+      font-size: 0.95rem; color: var(--text-secondary); max-width: 520px;
+      margin-bottom: 32px; line-height: 1.7;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
+      border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer;
+      border: none; transition: all 0.2s;
     }
-
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1.5px solid var(--border);
-    }
+    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     .hero-cover {
-      flex-shrink: 0;
-      width: 320px;
-      height: 320px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #0e7c6b, #1a5276);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
+      flex-shrink: 0; width: 300px; height: 300px; border-radius: 24px;
+      box-shadow: var(--shadow-lg); overflow: hidden;
     }
+    .hero-cover img { width: 100%; height: 100%; object-fit: cover; }
 
-    .hero-cover::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 60%);
+    /* ===== Hosts ===== */
+    .hosts-line {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 24px;
+      font-size: 0.9rem; color: var(--text-secondary);
     }
+    .hosts-line strong { color: var(--text); }
 
-    .hero-cover-text {
-      z-index: 1;
-      text-align: center;
-      color: #fff;
-    }
-
-    .hero-cover-text .logo-name {
-      font-size: 2.2rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    .hero-cover-text .logo-sub {
-      font-size: 0.85rem;
-      font-weight: 400;
-      opacity: 0.8;
-      margin-top: 8px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    /* ===== Platform Links ===== */
-    .platforms {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
+    /* ===== Platforms ===== */
+    .platforms { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .platforms-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      max-width: 1100px; margin: 0 auto; padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
     }
-
-    .platforms-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
+    .platforms-label { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
     .platform-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      transition: all 0.2s;
-      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+      border-radius: 8px; font-size: 0.85rem; font-weight: 500;
+      border: 1px solid var(--border); background: var(--card-bg); transition: all 0.2s; cursor: pointer;
     }
+    .platform-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow); }
 
-    .platform-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow);
-    }
-
-    .platform-icon { font-size: 1.2rem; }
-
-    /* ===== Section Headers ===== */
+    /* ===== Section Header ===== */
     .section-header {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 24px 24px;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
+      max-width: 1100px; margin: 0 auto; padding: 60px 24px 24px;
+      display: flex; align-items: baseline; justify-content: space-between;
     }
-
-    .section-header h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .section-header a {
-      font-size: 0.9rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
+    .section-header h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; }
+    .section-header a { font-size: 0.9rem; color: var(--accent); font-weight: 500; cursor: pointer; }
     .section-header a:hover { text-decoration: underline; }
 
     /* ===== Episodes ===== */
-    .episodes {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-    }
+    .episodes { max-width: 1100px; margin: 0 auto; padding: 0 24px 60px; }
 
     .episode-card {
-      display: flex;
-      gap: 24px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--card-bg);
-      margin-bottom: 16px;
-      transition: all 0.2s;
+      display: flex; gap: 20px; padding: 20px; border: 1px solid var(--border);
+      border-radius: var(--radius); background: var(--card-bg); margin-bottom: 12px; transition: all 0.2s;
     }
-
-    .episode-card:hover {
-      box-shadow: var(--shadow-lg);
-      border-color: transparent;
-      transform: translateY(-2px);
-    }
+    .episode-card:hover { box-shadow: var(--shadow-lg); border-color: transparent; transform: translateY(-2px); }
 
     .episode-thumb {
-      flex-shrink: 0;
-      width: 160px;
-      height: 120px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #0e7c6b, #1a5276);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      flex-shrink: 0; width: 100px; height: 100px; border-radius: 12px;
       overflow: hidden;
     }
-
-    .episode-thumb-ep {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: rgba(255,255,255,0.15);
-      position: absolute;
-    }
-
-    .episode-play-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s, background 0.2s;
-      z-index: 1;
-    }
-
-    .episode-play-btn:hover { transform: scale(1.1); background: var(--accent-hover); }
-
-    .episode-play-btn svg {
-      width: 18px;
-      height: 18px;
-      fill: #fff;
-      margin-left: 2px;
-    }
+    .episode-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
     .episode-info { flex: 1; min-width: 0; }
 
     .episode-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+      font-size: 0.78rem; color: var(--text-secondary);
     }
+    .episode-number { background: var(--accent-light); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-weight: 600; }
 
-    .episode-number {
-      background: var(--accent-light);
-      color: var(--accent);
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .episode-info h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-
+    .episode-info h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
     .episode-info h3:hover { color: var(--accent); }
 
     .episode-desc {
-      font-family: var(--font-serif);
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
 
-    .audio-player {
-      display: none;
-      margin-top: 16px;
-      padding: 12px;
-      background: var(--bg-secondary);
-      border-radius: 8px;
-    }
-
-    .audio-player.active { display: block; }
-    .audio-player audio { width: 100%; height: 40px; }
+    .episode-hidden { display: none; }
 
     /* ===== About ===== */
-    .about {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border);
-    }
-
+    .about { background: var(--bg-secondary); border-top: 1px solid var(--border); }
     .about-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 24px;
-      display: flex;
-      gap: 60px;
-      align-items: center;
+      max-width: 1100px; margin: 0 auto; padding: 80px 24px;
+      display: flex; gap: 48px; align-items: center;
     }
-
     .about-img {
-      flex-shrink: 0;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #0e7c6b, #1a5276);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: rgba(255,255,255,0.9);
+      flex-shrink: 0; width: 180px; height: 180px; border-radius: 50%;
+      overflow: hidden; box-shadow: var(--shadow-lg);
     }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-text h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .about-text p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
 
-    .about-text h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    .about-text p {
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 12px;
-    }
-
-    /* ===== Subscribe CTA ===== */
-    .subscribe {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 24px;
-      text-align: center;
-    }
-
-    .subscribe h2 {
-      font-size: 2.2rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-    }
-
+    /* ===== Subscribe ===== */
+    .subscribe { max-width: 1100px; margin: 0 auto; padding: 80px 24px; text-align: center; }
+    .subscribe h2 { font-size: 2.2rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 12px; }
     .subscribe p {
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 32px;
+      max-width: 500px; margin-left: auto; margin-right: auto;
     }
-
-    .subscribe-form {
-      display: flex;
-      gap: 12px;
-      max-width: 440px;
-      margin: 0 auto 24px;
-    }
-
+    .subscribe-form { display: flex; gap: 12px; max-width: 440px; margin: 0 auto 24px; }
     .subscribe-form input {
-      flex: 1;
-      padding: 12px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.95rem;
-      background: var(--card-bg);
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s;
+      flex: 1; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: 8px;
+      font-size: 0.95rem; background: var(--card-bg); color: var(--text); outline: none; transition: border-color 0.2s;
     }
-
     .subscribe-form input:focus { border-color: var(--accent); }
     .subscribe-form input::placeholder { color: var(--text-secondary); }
-
-    .rss-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
+    .rss-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: 0.9rem; font-weight: 500; }
     .rss-link:hover { text-decoration: underline; }
 
     /* ===== Footer ===== */
-    footer {
-      border-top: 1px solid var(--border);
-      background: var(--bg-secondary);
-    }
-
+    footer { border-top: 1px solid var(--border); background: var(--bg-secondary); }
     .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
+      max-width: 1100px; margin: 0 auto; padding: 40px 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
     }
-
-    .footer-left {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-    }
-
+    .footer-left { font-size: 0.85rem; color: var(--text-secondary); }
     .footer-left strong { color: var(--text); font-weight: 700; }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      transition: color 0.2s;
-    }
-
+    .footer-links { display: flex; gap: 20px; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: var(--text-secondary); transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
 
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column-reverse;
-        padding: 40px 20px;
-        gap: 32px;
-        text-align: center;
-      }
+      .hero { flex-direction: column-reverse; padding: 40px 20px; gap: 32px; text-align: center; }
       .hero-cover { width: 200px; height: 200px; }
-      .hero-cover-text .logo-name { font-size: 1.5rem; }
       .hero h1 { font-size: 2.2rem; }
       .hero-subtitle, .hero-desc { margin-left: auto; margin-right: auto; }
       .hero-actions { justify-content: center; }
-
+      .hosts-line { justify-content: center; }
       .nav-links { display: none; }
       .nav-menu-btn { display: block; }
       .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: var(--bg);
-        border-bottom: 1px solid var(--border);
-        padding: 16px 24px;
-        gap: 16px;
+        display: flex; flex-direction: column; position: absolute; top: 64px;
+        left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border);
+        padding: 16px 24px; gap: 16px;
       }
-
       .platforms-inner { justify-content: center; text-align: center; }
       .episode-card { flex-direction: column; }
-      .episode-thumb { width: 100%; height: 160px; }
+      .episode-thumb { width: 100%; height: 180px; }
       .about-inner { flex-direction: column; text-align: center; }
       .subscribe-form { flex-direction: column; }
       .footer-inner { flex-direction: column; text-align: center; }
@@ -609,7 +256,7 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- Nav -->
   <nav>
     <div class="nav-inner">
       <a href="#" class="nav-logo"><span class="vita">VITA1001</span> Modern Pharma</a>
@@ -629,8 +276,9 @@
     <div class="hero-text">
       <span class="hero-badge" data-en="Modern Pharma Career Journeys" data-zh="&#29616;&#20195;&#21307;&#33647;&#32844;&#19994;&#20043;&#26053;">Modern Pharma Career Journeys</span>
       <h1>VITA1001<br><span class="accent">Modern Pharma</span></h1>
-      <p class="hero-subtitle" data-en="Stories from the drug development world &mdash; from discovery to market." data-zh="&#33647;&#29289;&#24320;&#21457;&#19990;&#30028;&#30340;&#25925;&#20107; &mdash; &#20174;&#21457;&#29616;&#21040;&#19978;&#24066;&#12290;">Stories from the drug development world &mdash; from discovery to market.</p>
+      <p class="hero-subtitle" data-en="Stories from the drug development world &mdash; from discovery to market." data-zh="&#33647;&#29289;&#30740;&#21457;&#27969;&#31243;&#20197;&#21450;&#32972;&#21518;&#30340;&#20154;&#29289;&#19982;&#25925;&#20107;&#12290;">Stories from the drug development world &mdash; from discovery to market.</p>
       <p class="hero-desc" data-en="VITA1001 Modern Pharma sits down with scientists, clinicians, CMC and QA/QC professionals, project managers and more to explore how medicines move from idea to patient &mdash; and the people behind every step." data-zh="VITA1001 Modern Pharma &#19982;&#31185;&#23398;&#23478;&#12289;&#20020;&#24202;&#21307;&#29983;&#12289;CMC &#21644; QA/QC &#19987;&#19994;&#20154;&#22763;&#12289;&#39033;&#30446;&#32463;&#29702;&#31561;&#28145;&#20837;&#23545;&#35805;&#65292;&#25506;&#32034;&#33647;&#29289;&#22914;&#20309;&#20174;&#21019;&#24847;&#36208;&#21521;&#24739;&#32773; &mdash; &#20197;&#21450;&#27599;&#19968;&#27493;&#32972;&#21518;&#30340;&#20154;&#12290;">VITA1001 Modern Pharma sits down with scientists, clinicians, CMC and QA/QC professionals, project managers and more to explore how medicines move from idea to patient &mdash; and the people behind every step.</p>
+      <div class="hosts-line" data-en="Hosted by <strong>Sue</strong> &amp; <strong>Iris</strong>" data-zh="&#20027;&#25773;&#65306;<strong>Sue</strong> &amp; <strong>Iris</strong>">Hosted by <strong>Sue</strong> &amp; <strong>Iris</strong></div>
       <div class="hero-actions">
         <a href="#episodes" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
@@ -640,183 +288,242 @@
       </div>
     </div>
     <div class="hero-cover">
-      <div class="hero-cover-text">
-        <div class="logo-name">VITA1001</div>
-        <div class="logo-sub">Modern Pharma</div>
-      </div>
+      <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="VITA1001 Modern Pharma Cover">
     </div>
   </section>
 
-  <!-- Platform Links -->
+  <!-- Platforms -->
   <section class="platforms">
     <div class="platforms-inner">
       <span class="platforms-label" data-en="Listen on" data-zh="&#25910;&#21548;&#24179;&#21488;">Listen on</span>
       <a href="#" class="platform-link">Apple Podcasts</a>
       <a href="#" class="platform-link">Spotify</a>
-      <a href="#" class="platform-link">YouTube</a>
-      <a href="#" class="platform-link">Google Podcasts</a>
-      <a href="rss.xml" class="platform-link">RSS Feed</a>
+      <a href="#" class="platform-link">YouTube Music</a>
+      <a href="#" class="platform-link">&#23567;&#23431;&#23449;</a>
+      <a href="#" class="platform-link">&#21916;&#39532;&#25289;&#38597;</a>
+      <a href="#" class="platform-link">&#32593;&#26131;&#20113;&#38899;&#20048;</a>
+      <a href="#" class="platform-link">Bilibili</a>
+      <a href="https://anchor.fm/s/f526e620/podcast/rss" class="platform-link">RSS</a>
     </div>
   </section>
 
   <!-- Episodes -->
   <div class="section-header" id="episodes">
-    <h2 data-en="Latest Episodes" data-zh="&#26368;&#26032;&#21095;&#38598;">Latest Episodes</h2>
-    <a href="#" data-en="View All &rarr;" data-zh="&#26597;&#30475;&#20840;&#37096; &rarr;">View All &rarr;</a>
+    <h2 data-en="All Episodes" data-zh="&#25152;&#26377;&#21095;&#38598;">All Episodes</h2>
+    <span style="font-size:0.85rem;color:var(--text-secondary)">18 episodes</span>
   </div>
 
   <section class="episodes">
-    <!-- Episode 5 -->
     <div class="episode-card">
-      <div class="episode-thumb">
-        <span class="episode-thumb-ep">05</span>
-        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep5')" aria-label="Play episode">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        </button>
-      </div>
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 18-2"></div>
       <div class="episode-info">
-        <div class="episode-meta">
-          <span class="episode-number">EP 05</span>
-          <span>March 20, 2026</span>
-          <span>45 min</span>
-        </div>
-        <h3 data-en="From Bench to IND: A CMC Scientist's Journey" data-zh="&#20174;&#23454;&#39564;&#21488;&#21040; IND &#30003;&#25253;&#65306;&#19968;&#20301; CMC &#31185;&#23398;&#23478;&#30340;&#26053;&#31243;">From Bench to IND: A CMC Scientist's Journey</h3>
-        <p class="episode-desc" data-en="We talk with a CMC scientist about the path from early-stage formulation development through IND-enabling studies. Learn how chemistry, manufacturing, and controls shape the drug development timeline." data-zh="&#25105;&#20204;&#19982;&#19968;&#20301; CMC &#31185;&#23398;&#23478;&#23545;&#35805;&#65292;&#20102;&#35299;&#20174;&#26089;&#26399;&#21046;&#21058;&#24320;&#21457;&#21040; IND &#30003;&#25253;&#30740;&#31350;&#30340;&#20840;&#36807;&#31243;&#12290;&#25506;&#32034;&#21270;&#23398;&#12289;&#29983;&#20135;&#21644;&#36136;&#37327;&#25511;&#21046;&#22914;&#20309;&#24433;&#21709;&#33647;&#29289;&#24320;&#21457;&#26102;&#38388;&#32447;&#12290;">We talk with a CMC scientist about the path from early-stage formulation development through IND-enabling studies. Learn how chemistry, manufacturing, and controls shape the drug development timeline.</p>
-        <div class="audio-player" id="ep5">
-          <audio controls preload="none"><source src="audio/ep05.mp3" type="audio/mpeg"></audio>
-        </div>
+        <div class="episode-meta"><span class="episode-number">EP 18-2</span><span>2026-03-21</span><span>44 min</span></div>
+        <h3>&#37325;&#29983;&#20043;&#25105;&#22312;&#21021;&#21019;&#20844;&#21496;&#25171;&#24037;</h3>
+        <p class="episode-desc">Nicole&#35814;&#32454;&#35762;&#36848;&#20102;&#22905;&#32844;&#19994;&#29983;&#28079;&#20013;&#30340;&#22810;&#27425;&#36716;&#22411;&#65292;&#20174;CRO&#25216;&#26415;&#23703;&#20301;&#36716;&#21521;&#38144;&#21806;&#65292;&#38543;&#21518;&#20026;&#24357;&#34917;&#21830;&#19994;&#30693;&#35782;&#30701;&#32570;&#32780;&#25915;&#35835;MBA&#12290;</p>
       </div>
     </div>
 
-    <!-- Episode 4 -->
     <div class="episode-card">
-      <div class="episode-thumb">
-        <span class="episode-thumb-ep">04</span>
-        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep4')" aria-label="Play episode">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        </button>
-      </div>
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 18-1"></div>
       <div class="episode-info">
-        <div class="episode-meta">
-          <span class="episode-number">EP 04</span>
-          <span>March 13, 2026</span>
-          <span>38 min</span>
-        </div>
-        <h3 data-en="Life as a Clinical Research Associate in Oncology" data-zh="&#32959;&#30244;&#20020;&#24202;&#30740;&#31350;&#21161;&#29702;&#30340;&#26085;&#24120;">Life as a Clinical Research Associate in Oncology</h3>
-        <p class="episode-desc" data-en="A CRA shares what it's really like to monitor oncology trials across multiple sites. From protocol deviations to patient enrollment challenges, get an inside look at clinical operations." data-zh="&#19968;&#20301;&#20020;&#24202;&#30740;&#31350;&#21161;&#29702;&#20998;&#20139;&#22312;&#22810;&#20010;&#20013;&#24515;&#30417;&#26597;&#32959;&#30244;&#20020;&#24202;&#35797;&#39564;&#30340;&#30495;&#23454;&#20307;&#39564;&#12290;&#20174;&#26041;&#26696;&#20559;&#31163;&#21040;&#24739;&#32773;&#20837;&#32452;&#25361;&#25112;&#65292;&#28145;&#20837;&#20102;&#35299;&#20020;&#24202;&#36816;&#33829;&#12290;">A CRA shares what it's really like to monitor oncology trials across multiple sites. From protocol deviations to patient enrollment challenges, get an inside look at clinical operations.</p>
-        <div class="audio-player" id="ep4">
-          <audio controls preload="none"><source src="audio/ep04.mp3" type="audio/mpeg"></audio>
-        </div>
+        <div class="episode-meta"><span class="episode-number">EP 18-1</span><span>2026-03-21</span><span>48 min</span></div>
+        <h3>&#35835;MBA&#30495;&#30340;&#26377;&#29992;&#21527;&#65311;</h3>
+        <p class="episode-desc">Nicole&#20998;&#20139;&#36328;&#36234;&#38144;&#21806;&#12289;&#21672;&#35810;&#12289;&#24066;&#22330;&#12289;CRO&#39033;&#30446;&#31649;&#29702;&#30340;&#32844;&#19994;&#36335;&#24452;&#65292;&#35752;&#35770;MBA&#23398;&#20301;&#30340;&#20215;&#20540;&#19982;&#21830;&#19994;&#30693;&#35782;&#24212;&#29992;&#12290;</p>
       </div>
     </div>
 
-    <!-- Episode 3 -->
     <div class="episode-card">
-      <div class="episode-thumb">
-        <span class="episode-thumb-ep">03</span>
-        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep3')" aria-label="Play episode">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        </button>
-      </div>
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 17-2"></div>
       <div class="episode-info">
-        <div class="episode-meta">
-          <span class="episode-number">EP 03</span>
-          <span>March 6, 2026</span>
-          <span>52 min</span>
-        </div>
-        <h3 data-en="QA/QC in Biologics: Ensuring Every Batch Counts" data-zh="&#29983;&#29289;&#21046;&#33647;&#30340; QA/QC&#65306;&#30830;&#20445;&#27599;&#19968;&#25209;&#27425;&#37117;&#21512;&#26684;">QA/QC in Biologics: Ensuring Every Batch Counts</h3>
-        <p class="episode-desc" data-en="Quality professionals discuss the unique challenges of QA/QC in biologics manufacturing. From cell line characterization to release testing, discover what it takes to maintain GMP compliance." data-zh="&#36136;&#37327;&#19987;&#19994;&#20154;&#22763;&#35752;&#35770;&#29983;&#29289;&#21046;&#33647;&#29983;&#20135;&#20013; QA/QC &#30340;&#29420;&#29305;&#25361;&#25112;&#12290;&#20174;&#32454;&#32990;&#31995;&#34920;&#24449;&#21040;&#25918;&#34892;&#26816;&#27979;&#65292;&#20102;&#35299; GMP &#21512;&#35268;&#30340;&#20851;&#38190;&#12290;">Quality professionals discuss the unique challenges of QA/QC in biologics manufacturing. From cell line characterization to release testing, discover what it takes to maintain GMP compliance.</p>
-        <div class="audio-player" id="ep3">
-          <audio controls preload="none"><source src="audio/ep03.mp3" type="audio/mpeg"></audio>
-        </div>
+        <div class="episode-meta"><span class="episode-number">EP 17-2</span><span>2026-03-14</span><span>45 min</span></div>
+        <h3>&#23545;&#35848;Tommy Tang | AI&#26102;&#20195;&#30340;&#20010;&#20154;&#20215;&#20540;</h3>
+        <p class="episode-desc">Tommy Tang&#20998;&#20139;&#20174;&ldquo;&#20026;&#33258;&#24049;&#35760;&#31508;&#35760;&rdquo;&#21040;&ldquo;&#20026;&#22823;&#23478;&#20998;&#20139;&#20449;&#24687;&rdquo;&#30340;&#21019;&#20316;&#21021;&#34935;&#65292;&#35752;&#35770;AI&#26102;&#20195;&#20154;&#19982;&#20154;&#36830;&#25509;&#30340;&#29420;&#29305;&#20215;&#20540;&#12290;</p>
       </div>
     </div>
 
-    <!-- Episode 2 -->
     <div class="episode-card">
-      <div class="episode-thumb">
-        <span class="episode-thumb-ep">02</span>
-        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep2')" aria-label="Play episode">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        </button>
-      </div>
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 17-1"></div>
       <div class="episode-info">
-        <div class="episode-meta">
-          <span class="episode-number">EP 02</span>
-          <span>February 27, 2026</span>
-          <span>41 min</span>
-        </div>
-        <h3 data-en="Project Management in Pharma: Herding Cats Across Functions" data-zh="&#21307;&#33647;&#39033;&#30446;&#31649;&#29702;&#65306;&#36328;&#37096;&#38376;&#21327;&#20316;&#30340;&#33402;&#26415;">Project Management in Pharma: Herding Cats Across Functions</h3>
-        <p class="episode-desc" data-en="A pharma project manager reveals how they coordinate between R&amp;D, regulatory, commercial, and manufacturing teams to keep drug programs on track from Phase I through launch." data-zh="&#19968;&#20301;&#21307;&#33647;&#39033;&#30446;&#32463;&#29702;&#25581;&#31192;&#22914;&#20309;&#21327;&#35843;&#30740;&#21457;&#12289;&#27880;&#20876;&#12289;&#21830;&#19994;&#21270;&#21644;&#29983;&#20135;&#22242;&#38431;&#65292;&#30830;&#20445;&#33647;&#29289;&#39033;&#30446;&#20174;&#19968;&#26399;&#20020;&#24202;&#21040;&#19978;&#24066;&#39034;&#21033;&#25512;&#36827;&#12290;">A pharma project manager reveals how they coordinate between R&amp;D, regulatory, commercial, and manufacturing teams to keep drug programs on track from Phase I through launch.</p>
-        <div class="audio-player" id="ep2">
-          <audio controls preload="none"><source src="audio/ep02.mp3" type="audio/mpeg"></audio>
-        </div>
+        <div class="episode-meta"><span class="episode-number">EP 17-1</span><span>2026-03-14</span><span>70 min</span></div>
+        <h3>&#23545;&#35848;Tommy Tang | &#28145;&#24230;&#25286;&#35299;&#33647;&#21378;&#29983;&#20449;&#30740;&#31350;</h3>
+        <p class="episode-desc">&#28145;&#24230;&#25286;&#35299;&#33647;&#20225;&#30340;&#29983;&#20449;&#30740;&#31350;&#65292;AI&#22312;&#29983;&#20449;&#39046;&#22495;&#30340;&#24212;&#29992;&#19982;&#23616;&#38480;&#65292;&#28085;&#30422;&#22810;&#32452;&#23398;&#25972;&#21512;&#12289;&#21333;&#32454;&#32990;&#27979;&#24207;&#21450;AI&#22312;&#33647;&#29289;&#30740;&#21457;&#20013;&#30340;&#35282;&#33394;&#12290;</p>
       </div>
     </div>
 
-    <!-- Episode 1 -->
     <div class="episode-card">
-      <div class="episode-thumb">
-        <span class="episode-thumb-ep">01</span>
-        <button class="episode-play-btn" onclick="toggleAudio(this, 'ep1')" aria-label="Play episode">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        </button>
-      </div>
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="Special"></div>
       <div class="episode-info">
-        <div class="episode-meta">
-          <span class="episode-number">EP 01</span>
-          <span>February 20, 2026</span>
-          <span>35 min</span>
-        </div>
-        <h3 data-en="Welcome: Why We're Telling Pharma's Untold Stories" data-zh="&#27426;&#36814;&#65306;&#20026;&#20160;&#20040;&#25105;&#20204;&#35201;&#35762;&#36848;&#21307;&#33647;&#34892;&#19994;&#30340;&#25925;&#20107;">Welcome: Why We're Telling Pharma's Untold Stories</h3>
-        <p class="episode-desc" data-en="In our debut episode, we share why we started VITA1001 Modern Pharma and what we hope to explore — the real career paths, daily challenges, and human stories behind bringing medicines to patients." data-zh="&#22312;&#39318;&#26399;&#33410;&#30446;&#20013;&#65292;&#25105;&#20204;&#20998;&#20139;&#20102;&#21019;&#21150; VITA1001 Modern Pharma &#30340;&#21021;&#34935; &mdash; &#25506;&#32034;&#30495;&#23454;&#30340;&#32844;&#19994;&#36335;&#24452;&#12289;&#26085;&#24120;&#25361;&#25112;&#65292;&#20197;&#21450;&#23558;&#33647;&#29289;&#36865;&#36798;&#24739;&#32773;&#32972;&#21518;&#30340;&#20154;&#30340;&#25925;&#20107;&#12290;">In our debut episode, we share why we started VITA1001 Modern Pharma and what we hope to explore — the real career paths, daily challenges, and human stories behind bringing medicines to patients.</p>
-        <div class="audio-player" id="ep1">
-          <audio controls preload="none"><source src="audio/ep01.mp3" type="audio/mpeg"></audio>
-        </div>
+        <div class="episode-meta"><span class="episode-number">Special</span><span>2026-03-08</span><span>77 min</span></div>
+        <h3>&#21548;&#22905;&#35828; | &#21307;&#33647;&#32844;&#22330;&#22899;&#24615;&#30340;&#25361;&#25112;&#19982;&#25104;&#38271;&#65288;&#19979;&#65289;</h3>
+        <p class="episode-desc">&#22235;&#20301;&#36164;&#28145;&#22899;&#24615;&#22025;&#23486;&#25506;&#35752;&#32844;&#22330;&#25361;&#25112;&#12289;&#29983;&#32946;&#24433;&#21709;&#12289;&#24037;&#20316;&#26412;&#36136;&#21450;&#34892;&#19994;&#36235;&#21183;&#65292;&#20998;&#20139;&#32844;&#19994;&#20518;&#24608;&#35843;&#33410;&#19982;&#20581;&#24247;&#20316;&#20026;&#31454;&#20105;&#21147;&#12290;</p>
       </div>
+    </div>
+
+    <div class="episode-card">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="Special"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">Special</span><span>2026-03-08</span><span>81 min</span></div>
+        <h3>&#21548;&#22905;&#35828; | &#21307;&#33647;&#32844;&#22330;&#22899;&#24615;&#30340;&#36873;&#25321;&#19982;&#36827;&#38454;&#65288;&#19978;&#65289;</h3>
+        <p class="episode-desc">&#22235;&#20301;&#22899;&#24615;&#22025;&#23486;&#20998;&#20139;&#23398;&#26415;&#30028;&#36716;&#24037;&#19994;&#30028;&#30340;&#21382;&#31243;&#12289;&#32844;&#19994;&#36873;&#25321;&#12289;&#26187;&#21319;&#32463;&#39564;&#21450;&#39046;&#23548;&#21147;&#24314;&#31435;&#36807;&#31243;&#12290;</p>
+      </div>
+    </div>
+
+    <!-- Hidden episodes (show more) -->
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 15"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 15</span><span>2026-03-04</span><span>54 min</span></div>
+        <h3>&#20013;&#21307;&#35775;&#35848; | &#34081;&#38182;&#33459;&#32769;&#24072;&#30340;&#34892;&#21307;&#24535;</h3>
+        <p class="episode-desc">&#34081;&#38182;&#33459;&#20998;&#20139;60&#24180;&#34892;&#21307;&#32463;&#21382;&#65292;&#20174;&#27665;&#38388;&#25308;&#24072;&#21040;&#19987;&#19994;&#21307;&#24072;&#65292;&#35752;&#35770;&#20013;&#21307;&#36777;&#35777;&#26045;&#27835;&#12289;&#28846;&#21046;&#23398;&#21450;&#20013;&#33647;&#29616;&#20195;&#21270;&#30340;&#23432;&#27491;&#21019;&#26032;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 14-2"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 14-2</span><span>2026-02-04</span><span>30 min</span></div>
+        <h3>&#29983;&#29289;&#20256;&#24863;&#22120; | &#20010;&#20154;&#25104;&#38271;&#19982;&#22242;&#38431;&#31649;&#29702;</h3>
+        <p class="episode-desc">Matt&#21338;&#22763;&#20998;&#20139;&#22914;&#20309;&#24102;&#39046;&#36328;&#32844;&#33021;&#22242;&#38431;&#12289;&#20105;&#21462;&#21319;&#32844;&#21152;&#34218;&#26426;&#20250;&#21450;&#29983;&#29289;&#20256;&#24863;&#22120;&#26410;&#26469;&#21457;&#23637;&#26041;&#21521;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 14-1"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 14-1</span><span>2026-02-04</span><span>43 min</span></div>
+        <h3>&#29983;&#29289;&#20256;&#24863;&#22120; | CGM&#25216;&#26415;&#19982;&#30495;&#23454;&#25361;&#25112;</h3>
+        <p class="episode-desc">Matt&#21338;&#22763;&#20998;&#20139;&#20174;&#26080;&#26426;&#26448;&#26009;&#21040;&#29983;&#29289;&#20256;&#24863;&#22120;&#30340;&#32844;&#19994;&#36716;&#25240;&#65292;&#35762;&#35299;CGM&#30005;&#21270;&#23398;&#21407;&#29702;&#21450;&#20174;&#23398;&#26415;&#30028;&#21040;&#24037;&#19994;&#30028;&#30340;&#20851;&#38190;&#24046;&#24322;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 13-2"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 13-2</span><span>2025-12-09</span><span>35 min</span></div>
+        <h3>IC vs Manager | &#33647;&#20225;&#35745;&#37327;&#24037;&#31243;&#31649;&#29702;&#23703;&#32463;&#39564;&#20998;&#20139;</h3>
+        <p class="episode-desc">&#36164;&#28145;&#35745;&#37327;&#24037;&#31243;&#24072;&#20998;&#20139;&#20174;IC&#21040;Manager&#30340;&#32844;&#19994;&#36716;&#21464;&#65292;&#35752;&#35770;&#22242;&#38431;&#24314;&#35774;&#12289;&#36164;&#28304;&#20998;&#37197;&#19982;metrology&#39046;&#22495;&#30340;&#21457;&#23637;&#26426;&#20250;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 13-1"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 13-1</span><span>2025-12-07</span><span>46 min</span></div>
+        <h3>Metrologist | &#33647;&#20225;&#20202;&#22120;&#31649;&#29702;&#22823;&#24072;</h3>
+        <p class="episode-desc">&#35745;&#37327;&#23398;&#30830;&#20445;&#27979;&#37327;&#20934;&#30830;&#19988;&#21487;&#37325;&#22797;&#65292;&#28085;&#30422;&#39044;&#38450;&#24615;&#32500;&#25252;&#12289;&#26657;&#20934;&#20307;&#31995;&#12289;&#33258;&#21160;&#21270;&#24037;&#20316;&#31449;&#20860;&#23481;&#24615;&#21450;&#23454;&#39564;&#23460;&#22522;&#30784;&#35774;&#26045;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 12-2"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 12-2</span><span>2025-10-30</span><span>48 min</span></div>
+        <h3>&#29983;&#29289;&#21307;&#33647;BD&#25351;&#21335; | &#36827;&#38454;&#23454;&#25805;&#31687;</h3>
+        <p class="episode-desc">&#24555;&#40575;&#21338;&#22763;&#20998;&#20139;&#23458;&#25143;&#20851;&#31995;&#31649;&#29702;&#12289;BD&#32844;&#19994;&#36335;&#24452;&#12289;&#26680;&#24515;&#25216;&#33021;&#21450;&#31185;&#23398;&#19982;&#21830;&#19994;&#27807;&#36890;&#30340;&#26725;&#26753;&#20316;&#29992;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 12-1"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 12-1</span><span>2025-10-16</span><span>62 min</span></div>
+        <h3>&#29983;&#29289;&#21307;&#33647;BD&#25351;&#21335;&#65288;&#19978;&#38598;&#65289;</h3>
+        <p class="episode-desc">&#25429;&#25417;&#26426;&#20250;-&#35780;&#20272;&#39033;&#30446;-&#20419;&#25104;&#21512;&#20316;&#30340;BD&#23436;&#25972;&#27969;&#31243;&#65292;&#28085;&#30422;License in/out&#12289;&#20132;&#26131;&#35774;&#35745;&#21450;&#20013;&#32654;&#21307;&#33647;&#24066;&#22330;&#24046;&#24322;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 11-2"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 11-2</span><span>2025-09-11</span><span>31 min</span></div>
+        <h3>AI FOR SCIENCE &#19979;&#38598; | &#27973;&#35848;BD&#20837;&#34892;&#25915;&#30053;</h3>
+        <p class="episode-desc">&#26691;&#23376;&#21338;&#22763;&#20998;&#20139;&#20174;&#31185;&#30740;&#36208;&#21521;BD&#23703;&#20301;&#30340;&#36716;&#21464;&#65292;&#35752;&#35770;PhD&#36523;&#20221;&#20248;&#21183;&#12289;BD&#25216;&#33021;&#38656;&#27714;&#21450;AI&#23545;&#21830;&#21153;&#25299;&#23637;&#30340;&#24433;&#21709;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 11-1"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 11-1</span><span>2025-09-10</span><span>45 min</span></div>
+        <h3>AI FOR SCIENCE &#19978;&#38598; | &#31185;&#23398;&#23478;&#20250;&#34987;AI&#26367;&#20195;&#21527;&#65311;</h3>
+        <p class="episode-desc">AI&#24050;&#28183;&#36879;&#29983;&#27963;&#26041;&#26041;&#38754;&#38754;&#65292;&#35752;&#35770;AIDD&#22312;&#33647;&#29289;&#26089;&#26399;&#30740;&#21457;&#30340;&#24212;&#29992;&#12289;AI&#27169;&#22411;&#21487;&#38752;&#24615;&#21450;&#20154;&#31867;&#22312;&#30740;&#21457;&#20013;&#30340;&#19981;&#21487;&#26367;&#20195;&#24615;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 10"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 10</span><span>2025-07-07</span><span>63 min</span></div>
+        <h3>Clinical Operation | &#20020;&#24202;&#36816;&#33829;&#24149;&#21518;&#26550;&#26500;&#24072;</h3>
+        <p class="episode-desc">PharmD&#26898;&#26898;&#20998;&#20139;&#20020;&#24202;&#36816;&#33829;&#27010;&#24565;&#12289;&#21487;&#34892;&#24615;&#20998;&#26512;&#27969;&#31243;&#12289;AI&#24212;&#29992;&#21450;&#20174;&#23398;&#26415;&#30028;&#36716;&#24037;&#19994;&#30028;&#30340;&#32844;&#19994;&#21457;&#23637;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 9"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 9</span><span>2025-06-01</span><span>52 min</span></div>
+        <h3>&#33647;&#20225;&#39033;&#30446;&#31649;&#29702;&#25351;&#21335; | &#36164;&#28145;PM&#21547;&#27882;&#20998;&#20139;</h3>
+        <p class="episode-desc">Project Manager&#25903;&#25345;&#33647;&#29289;&#20174;&#23454;&#39564;&#23460;&#36208;&#21521;&#24066;&#22330;&#65292;&#35752;&#35770;PM&#32844;&#36131;&#12289;&#36328;&#37096;&#38376;&#21327;&#35843;&#12289;timeline&#39044;&#20272;&#21450;&#32844;&#19994;&#21457;&#23637;&#36335;&#24452;&#12290;</p>
+      </div>
+    </div>
+
+    <div class="episode-card episode-hidden">
+      <div class="episode-thumb"><img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="EP 8"></div>
+      <div class="episode-info">
+        <div class="episode-meta"><span class="episode-number">EP 8</span><span>2025-03-19</span><span>44 min</span></div>
+        <h3>&#26089;&#26399;&#33647;&#29289;&#30740;&#21457; | &#21307;&#38498;&#19982;&#33647;&#20225;&#30340;&#21306;&#21035;</h3>
+        <p class="episode-desc">&#27225;&#27225;&#21338;&#22763;&#20998;&#20139;&#21307;&#38498;&#19982;&#33647;&#20225;&#30740;&#21457;&#29615;&#22659;&#24046;&#24322;&#12289;&#38774;&#28857;&#36873;&#25321;&#12289;&#39033;&#30446;&#31435;&#39033;&#26631;&#20934;&#21450;&#20004;&#31181;&#29615;&#22659;&#30340;&#34218;&#36164;&#31119;&#21033;&#23545;&#27604;&#12290;</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; padding: 16px 0;">
+      <button class="btn btn-outline" id="show-more-btn" onclick="toggleShowMore()" data-en="Show All Episodes" data-zh="&#26174;&#31034;&#25152;&#26377;&#21095;&#38598;">Show All Episodes</button>
     </div>
   </section>
 
   <!-- About -->
   <section class="about" id="about">
     <div class="about-inner">
-      <div class="about-img">&#9883;</div>
+      <div class="about-img">
+        <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/41029672/41029672-1748994098765-e017571eede89.jpg" alt="VITA1001">
+      </div>
       <div class="about-text">
         <h2 data-en="About the Podcast" data-zh="&#20851;&#20110;&#25105;&#20204;">About the Podcast</h2>
-        <p data-en="VITA1001 Modern Pharma is a podcast featuring modern pharma career journeys. We sit down with the people who make drug development happen — scientists, clinicians, CMC and QA/QC professionals, project managers, and more." data-zh="VITA1001 Modern Pharma &#26159;&#19968;&#26723;&#32858;&#28966;&#29616;&#20195;&#21307;&#33647;&#32844;&#19994;&#26053;&#31243;&#30340;&#25773;&#23458;&#12290;&#25105;&#20204;&#19982;&#25512;&#21160;&#33647;&#29289;&#24320;&#21457;&#30340;&#20154;&#20204;&#28145;&#20837;&#23545;&#35805; &mdash; &#31185;&#23398;&#23478;&#12289;&#20020;&#24202;&#21307;&#29983;&#12289;CMC &#21644; QA/QC &#19987;&#19994;&#20154;&#22763;&#12289;&#39033;&#30446;&#32463;&#29702;&#31561;&#12290;">VITA1001 Modern Pharma is a podcast featuring modern pharma career journeys. We sit down with the people who make drug development happen — scientists, clinicians, CMC and QA/QC professionals, project managers, and more.</p>
-        <p data-en="Each episode explores how medicines move from idea to patient, and the real stories of the people behind every step of the journey." data-zh="&#27599;&#26399;&#33410;&#30446;&#25506;&#32034;&#33647;&#29289;&#22914;&#20309;&#20174;&#21019;&#24847;&#36208;&#21521;&#24739;&#32773;&#65292;&#20197;&#21450;&#36825;&#27573;&#26053;&#31243;&#27599;&#19968;&#27493;&#32972;&#21518;&#30340;&#30495;&#23454;&#25925;&#20107;&#12290;">Each episode explores how medicines move from idea to patient, and the real stories of the people behind every step of the journey.</p>
+        <p data-en="VITA1001 Modern Pharma is hosted by <strong>Sue</strong> and <strong>Iris</strong>. We feature modern pharma career journeys &mdash; real stories from the drug development world, from discovery to market." data-zh="VITA1001 Modern Pharma &#30001; <strong>Sue</strong> &#21644; <strong>Iris</strong> &#20027;&#25345;&#12290;&#25105;&#20204;&#35760;&#24405;&#29616;&#20195;&#21307;&#33647;&#32844;&#19994;&#26053;&#31243; &mdash; &#33647;&#29289;&#30740;&#21457;&#19990;&#30028;&#30340;&#30495;&#23454;&#25925;&#20107;&#65292;&#20174;&#21457;&#29616;&#21040;&#19978;&#24066;&#12290;">VITA1001 Modern Pharma is hosted by <strong>Sue</strong> and <strong>Iris</strong>. We feature modern pharma career journeys &mdash; real stories from the drug development world, from discovery to market.</p>
+        <p data-en="We sit down with scientists, clinicians, CMC and QA/QC professionals, project managers, BD specialists, and more to explore how medicines move from idea to patient &mdash; and the people behind every step." data-zh="&#25105;&#20204;&#19982;&#31185;&#23398;&#23478;&#12289;&#20020;&#24202;&#21307;&#29983;&#12289;CMC &#21644; QA/QC &#19987;&#19994;&#20154;&#22763;&#12289;&#39033;&#30446;&#32463;&#29702;&#12289;BD&#19987;&#23478;&#31561;&#28145;&#20837;&#23545;&#35805;&#65292;&#25506;&#32034;&#33647;&#29289;&#22914;&#20309;&#20174;&#21019;&#24847;&#36208;&#21521;&#24739;&#32773; &mdash; &#20197;&#21450;&#27599;&#19968;&#27493;&#32972;&#21518;&#30340;&#20154;&#12290;">We sit down with scientists, clinicians, CMC and QA/QC professionals, project managers, BD specialists, and more to explore how medicines move from idea to patient &mdash; and the people behind every step.</p>
+        <p style="margin-top:16px;"><a href="mailto:vita1001.podcast@gmail.com" style="color:var(--accent);font-weight:500;">vita1001.podcast@gmail.com</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Subscribe CTA -->
+  <!-- Subscribe -->
   <section class="subscribe" id="subscribe">
     <h2 data-en="Never Miss an Episode" data-zh="&#19981;&#38169;&#36807;&#27599;&#19968;&#26399;">Never Miss an Episode</h2>
-    <p data-en="Subscribe to get notified when new episodes drop. Join our community of pharma professionals and curious minds." data-zh="&#35746;&#38405;&#21363;&#21487;&#22312;&#26032;&#21095;&#38598;&#21457;&#24067;&#26102;&#25910;&#21040;&#36890;&#30693;&#12290;&#21152;&#20837;&#25105;&#20204;&#30340;&#21307;&#33647;&#19987;&#19994;&#20154;&#22763;&#31038;&#21306;&#12290;">Subscribe to get notified when new episodes drop. Join our community of pharma professionals and curious minds.</p>
+    <p data-en="Subscribe to get notified when new episodes drop. Join our community of pharma professionals." data-zh="&#35746;&#38405;&#21363;&#21487;&#22312;&#26032;&#21095;&#38598;&#21457;&#24067;&#26102;&#25910;&#21040;&#36890;&#30693;&#12290;&#21152;&#20837;&#25105;&#20204;&#30340;&#21307;&#33647;&#19987;&#19994;&#20154;&#22763;&#31038;&#21306;&#12290;">Subscribe to get notified when new episodes drop. Join our community of pharma professionals.</p>
     <form class="subscribe-form" onsubmit="handleSubscribe(event)">
       <input type="email" id="subscribe-input" placeholder="Enter your email" data-en-placeholder="Enter your email" data-zh-placeholder="&#36755;&#20837;&#20320;&#30340;&#37038;&#31665;" required>
       <button type="submit" class="btn btn-primary" data-en="Subscribe" data-zh="&#35746;&#38405;">Subscribe</button>
     </form>
-    <a href="rss.xml" class="rss-link" data-en="&#128246; Subscribe via RSS" data-zh="&#128246; &#36890;&#36807; RSS &#35746;&#38405;">&#128246; Subscribe via RSS</a>
+    <a href="https://anchor.fm/s/f526e620/podcast/rss" class="rss-link" data-en="Subscribe via RSS" data-zh="&#36890;&#36807; RSS &#35746;&#38405;">Subscribe via RSS</a>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-left">
-        <strong>VITA1001 Modern Pharma</strong> &middot; &copy; 2026
+        <strong>VITA1001 Modern Pharma</strong> &middot; &copy; 2026 &middot;
+        <a href="https://vita1001.com" style="color:var(--accent)">vita1001.com</a>
       </div>
       <ul class="footer-links">
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#" data-en="Contact" data-zh="&#32852;&#31995;">Contact</a></li>
+        <li><a href="mailto:vita1001.podcast@gmail.com" data-en="Contact" data-zh="&#32852;&#31995;">Contact</a></li>
+        <li><a href="https://anchor.fm/s/f526e620/podcast/rss">RSS</a></li>
       </ul>
     </div>
   </footer>
 
   <script>
-    // ===== Language Toggle =====
+    // ===== Language =====
     let currentLang = localStorage.getItem('lang') || 'en';
 
     function setLang(lang) {
@@ -824,28 +531,37 @@
       localStorage.setItem('lang', lang);
       document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
       document.getElementById('lang-toggle').textContent = lang === 'en' ? '\u4e2d\u6587' : 'EN';
-
       document.querySelectorAll('[data-en][data-zh]').forEach(el => {
         el.innerHTML = el.getAttribute('data-' + lang);
       });
-
       const subInput = document.getElementById('subscribe-input');
-      if (subInput) {
-        subInput.placeholder = subInput.getAttribute('data-' + lang + '-placeholder');
-      }
+      if (subInput) subInput.placeholder = subInput.getAttribute('data-' + lang + '-placeholder');
     }
 
-    function toggleLang() {
-      setLang(currentLang === 'en' ? 'zh' : 'en');
-    }
+    function toggleLang() { setLang(currentLang === 'en' ? 'zh' : 'en'); }
 
-    // ===== Theme Toggle =====
+    // ===== Theme =====
     function toggleTheme() {
       const html = document.documentElement;
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       document.getElementById('theme-toggle').textContent = next === 'dark' ? '\u2600' : '\u263E';
+    }
+
+    // ===== Show More =====
+    let showAll = false;
+    function toggleShowMore() {
+      showAll = !showAll;
+      document.querySelectorAll('.episode-hidden').forEach(el => {
+        el.style.display = showAll ? 'flex' : 'none';
+      });
+      const btn = document.getElementById('show-more-btn');
+      if (currentLang === 'zh') {
+        btn.textContent = showAll ? '\u6536\u8d77' : '\u663e\u793a\u6240\u6709\u5267\u96c6';
+      } else {
+        btn.textContent = showAll ? 'Show Less' : 'Show All Episodes';
+      }
     }
 
     // ===== Init =====
@@ -861,41 +577,17 @@
       if (currentLang !== 'en') setLang(currentLang);
     })();
 
-    // ===== Audio Player =====
-    function toggleAudio(btn, id) {
-      const player = document.getElementById(id);
-      document.querySelectorAll('.audio-player').forEach(p => {
-        if (p.id !== id) {
-          p.classList.remove('active');
-          const a = p.querySelector('audio');
-          if (a) a.pause();
-        }
-      });
-      player.classList.toggle('active');
-      const audio = player.querySelector('audio');
-      if (player.classList.contains('active')) {
-        audio.play().catch(() => {});
-      } else {
-        audio.pause();
-      }
-    }
-
     // ===== Subscribe =====
     function handleSubscribe(e) {
       e.preventDefault();
       const input = e.target.querySelector('input');
-      const msg = currentLang === 'zh'
-        ? '\u8c22\u8c22\u8ba2\u9605\uff01\uff08\u8fd9\u662f\u6f14\u793a \u2014 \u8bf7\u8fde\u63a5\u60a8\u7684\u90ae\u4ef6\u670d\u52a1\uff09'
-        : 'Thanks for subscribing! (Demo \u2014 connect your email service)';
-      alert(msg);
+      alert(currentLang === 'zh' ? '\u8c22\u8c22\u8ba2\u9605\uff01' : 'Thanks for subscribing!');
       input.value = '';
     }
 
     // ===== Mobile Menu =====
     document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.remove('open');
-      });
+      link.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
     });
   </script>
 </body>
