@@ -140,11 +140,13 @@
     }
     .platforms-label { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
     .platform-link {
-      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
-      border-radius: 8px; font-size: 0.85rem; font-weight: 500;
-      border: 1px solid var(--border); background: var(--card-bg); transition: all 0.2s; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; padding: 8px;
+      border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg);
+      transition: all 0.2s; cursor: pointer; width: 42px; height: 42px;
     }
-    .platform-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow); }
+    .platform-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .platform-link svg { width: 22px; height: 22px; fill: var(--text-secondary); transition: fill 0.2s; }
+    .platform-link:hover svg { fill: var(--accent); }
 
     /* ===== Section Header ===== */
     .section-header {
@@ -296,14 +298,38 @@
   <section class="platforms">
     <div class="platforms-inner">
       <span class="platforms-label" data-en="Listen on" data-zh="&#25910;&#21548;&#24179;&#21488;">Listen on</span>
-      <a href="#" class="platform-link">Apple Podcasts</a>
-      <a href="#" class="platform-link">Spotify</a>
-      <a href="#" class="platform-link">YouTube Music</a>
-      <a href="#" class="platform-link">&#23567;&#23431;&#23449;</a>
-      <a href="#" class="platform-link">&#21916;&#39532;&#25289;&#38597;</a>
-      <a href="#" class="platform-link">&#32593;&#26131;&#20113;&#38899;&#20048;</a>
-      <a href="#" class="platform-link">Bilibili</a>
-      <a href="https://anchor.fm/s/f526e620/podcast/rss" class="platform-link">RSS</a>
+      <!-- Apple Podcasts -->
+      <a href="https://podcasts.apple.com/us/podcast/vita1001-modern-pharma/id1749690729" target="_blank" class="platform-link" title="Apple Podcasts">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 3.07 1.386 5.813 3.563 7.645C5.203 17.843 5 15.95 5 14.5c0-3.59 2.694-6.5 7-6.5s7 2.91 7 6.5c0 1.45-.203 3.343-.563 5.145C20.614 17.813 22 15.07 22 12c0-5.523-4.477-10-10-10zm0 4a3 3 0 100 6 3 3 0 000-6zm0 8c-2.21 0-4 1.567-4 3.5 0 1.013.129 2.088.363 3.05.47.15.957.272 1.457.363C10.28 20.14 11.05 19 12 19s1.72 1.14 2.18 1.913c.5-.091.987-.213 1.457-.362.234-.963.363-2.038.363-3.051 0-1.933-1.79-3.5-4-3.5z"/></svg>
+      </a>
+      <!-- Spotify -->
+      <a href="https://open.spotify.com/show/3apr3LdooPxfRLiuXrymzw" target="_blank" class="platform-link" title="Spotify">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.207c-2.348-1.435-5.304-1.76-8.786-.964a.623.623 0 11-.277-1.215c3.809-.87 7.076-.496 9.713 1.115a.623.623 0 01.207.857zm1.224-2.719a.78.78 0 01-1.072.257c-2.687-1.652-6.785-2.131-9.965-1.166a.78.78 0 01-.452-1.493c3.632-1.102 8.147-.568 11.234 1.329a.78.78 0 01.255 1.073zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.935.935 0 11-.542-1.79c3.533-1.072 9.404-.865 13.115 1.338a.935.935 0 01-.955 1.612z"/></svg>
+      </a>
+      <!-- YouTube Music -->
+      <a href="#" target="_blank" class="platform-link" title="YouTube Music">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm-2-11.5l6 3.5-6 3.5v-7z"/></svg>
+      </a>
+      <!-- 小宇宙 -->
+      <a href="https://www.xiaoyuzhoufm.com/podcast/66243f4ded3fd4d8ef79b84e" target="_blank" class="platform-link" title="&#23567;&#23431;&#23449;">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5" style="stroke:var(--text-secondary)"/><circle cx="12" cy="12" r="3" style="fill:var(--text-secondary)"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--text-secondary)"/></svg>
+      </a>
+      <!-- 喜马拉雅 -->
+      <a href="#" target="_blank" class="platform-link" title="&#21916;&#39532;&#25289;&#38597;">
+        <svg viewBox="0 0 24 24"><path d="M12 2L3 9v11a2 2 0 002 2h14a2 2 0 002-2V9l-9-7zm0 2.5L19 10v10H5V10l7-5.5zM12 11a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></svg>
+      </a>
+      <!-- 网易云音乐 -->
+      <a href="https://163cn.tv/31QptTx" target="_blank" class="platform-link" title="&#32593;&#26131;&#20113;&#38899;&#20048;">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 3a1.5 1.5 0 011.5 1.5c0 .456-.203.863-.524 1.14l1.774 3.11A3.5 3.5 0 0115.5 14a3.5 3.5 0 11-6.527-1.75l1.774-3.11A1.494 1.494 0 0110.5 8v-.5A1.5 1.5 0 0112 5zm0 7a2 2 0 100 4 2 2 0 000-4z"/></svg>
+      </a>
+      <!-- Bilibili -->
+      <a href="#" target="_blank" class="platform-link" title="Bilibili">
+        <svg viewBox="0 0 24 24"><path d="M6.73 4.12l2.03 2.03H8.5A3.5 3.5 0 005 9.65v6.5A3.5 3.5 0 008.5 19.65h7a3.5 3.5 0 003.5-3.5v-6.5a3.5 3.5 0 00-3.5-3.5h-.26l2.03-2.03a.75.75 0 00-1.06-1.06L13.58 5.6h-3.16L7.79 3.06a.75.75 0 00-1.06 1.06zM8.5 7.65h7a2 2 0 012 2v6.5a2 2 0 01-2 2h-7a2 2 0 01-2-2v-6.5a2 2 0 012-2zm1 3a.75.75 0 00-.75.75v1.5a.75.75 0 001.5 0v-1.5a.75.75 0 00-.75-.75zm5 0a.75.75 0 00-.75.75v1.5a.75.75 0 001.5 0v-1.5a.75.75 0 00-.75-.75z"/></svg>
+      </a>
+      <!-- RSS -->
+      <a href="https://anchor.fm/s/f526e620/podcast/rss" target="_blank" class="platform-link" title="RSS Feed">
+        <svg viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44zm0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/></svg>
+      </a>
     </div>
   </section>
 
