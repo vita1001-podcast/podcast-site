@@ -140,13 +140,14 @@
     }
     .platforms-label { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
     .platform-link {
-      display: inline-flex; align-items: center; justify-content: center; padding: 8px;
-      border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg);
-      transition: all 0.2s; cursor: pointer; width: 42px; height: 42px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 12px; border: none; background: var(--icon-bg, #1c1c1e);
+      transition: all 0.2s; cursor: pointer; width: 44px; height: 44px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-    .platform-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
-    .platform-link svg { width: 22px; height: 22px; fill: var(--icon-color, var(--text-secondary)); transition: opacity 0.2s; }
-    .platform-link:hover svg { opacity: 0.7; }
+    .platform-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .platform-link svg { width: 24px; height: 24px; fill: var(--icon-color, #fff); transition: opacity 0.2s; }
+    .platform-link:hover svg { opacity: 0.85; }
 
     /* ===== Section Header ===== */
     .section-header {
@@ -299,35 +300,35 @@
     <div class="platforms-inner">
       <span class="platforms-label" data-en="Listen on" data-zh="&#25910;&#21548;&#24179;&#21488;">Listen on</span>
       <!-- Apple Podcasts -->
-      <a href="https://podcasts.apple.com/us/podcast/vita1001-modern-pharma/id1749690729" target="_blank" class="platform-link" title="Apple Podcasts" style="--icon-color:#9933CC">
+      <a href="https://podcasts.apple.com/us/podcast/vita1001-modern-pharma/id1749690729" target="_blank" class="platform-link" title="Apple Podcasts" style="--icon-bg:#1c1c1e;--icon-color:#b150e2">
         <svg viewBox="0 0 24 24"><path d="M12.001 0C5.374 0 .002 5.373.002 12s5.372 12 12 12c6.626 0 11.997-5.373 11.997-12S18.627 0 12.001 0zm-.002 4.308a7.69 7.69 0 017.69 7.691 7.64 7.64 0 01-.535 2.871.55.55 0 01-1.03-.399 6.52 6.52 0 00.432-2.472 6.556 6.556 0 10-13.113 0c0 .892.136 1.717.432 2.472a.55.55 0 01-1.03.399 7.64 7.64 0 01-.536-2.871 7.69 7.69 0 017.69-7.69zm0 3.36a4.33 4.33 0 014.33 4.33c0 .686-.159 1.334-.443 1.913a.55.55 0 01-.984-.5c.216-.44.294-.93.294-1.413a3.197 3.197 0 10-6.394 0c0 .483.078.972.294 1.413a.55.55 0 01-.984.5 4.29 4.29 0 01-.443-1.913 4.33 4.33 0 014.33-4.33zm0 3.3a1.032 1.032 0 100 2.063 1.032 1.032 0 000-2.063zm-.91 2.725c-.16.28-.237.607-.237.974 0 .413.035 1.307.103 2.682.069 1.376.103 2.374.103 2.995 0 .38.131.7.395.956.263.258.567.377.912.354.345-.022.62-.16.826-.412.206-.254.308-.553.308-.899 0-.62.035-1.619.103-2.995.069-1.375.103-2.269.103-2.682 0-.212-.033-.41-.1-.597a1.19 1.19 0 00-.346-.532 1.07 1.07 0 00-.592-.17h-.452c-.21 0-.41.057-.592.17a1.11 1.11 0 00-.342.346z"/></svg>
       </a>
       <!-- Spotify -->
-      <a href="https://open.spotify.com/show/3apr3LdooPxfRLiuXrymzw" target="_blank" class="platform-link" title="Spotify" style="--icon-color:#1DB954">
+      <a href="https://open.spotify.com/show/3apr3LdooPxfRLiuXrymzw" target="_blank" class="platform-link" title="Spotify" style="--icon-bg:#191414;--icon-color:#1DB954">
         <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
       </a>
       <!-- YouTube Music -->
-      <a href="https://music.youtube.com/playlist?list=PLPjuTfcQgi3b1aeb5knmtNwT-mX2B52TM&si=ppPeWNRkZ54Z3gGb" target="_blank" class="platform-link" title="YouTube Music" style="--icon-color:#FF0000">
-        <svg viewBox="0 0 24 24"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/></svg>
+      <a href="https://music.youtube.com/playlist?list=PLPjuTfcQgi3b1aeb5knmtNwT-mX2B52TM&si=ppPeWNRkZ54Z3gGb" target="_blank" class="platform-link" title="YouTube Music" style="--icon-bg:#ffffff;--icon-color:#FF0000">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
       </a>
       <!-- 小宇宙 -->
-      <a href="https://www.xiaoyuzhoufm.com/podcast/66243f4ded3fd4d8ef79b84e" target="_blank" class="platform-link" title="&#23567;&#23431;&#23449;" style="--icon-color:#EE6352">
-        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 3.6a8.4 8.4 0 110 16.8 8.4 8.4 0 010-16.8zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5z" fill-rule="evenodd"/></svg>
+      <a href="https://www.xiaoyuzhoufm.com/podcast/66243f4ded3fd4d8ef79b84e" target="_blank" class="platform-link" title="&#23567;&#23431;&#23449;" style="--icon-bg:#1b2a4a;--icon-color:#6ec6d8">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="11" ry="4.5" fill="none" stroke="#6ec6d8" stroke-width="1.2" transform="rotate(-25 12 12)"/><circle cx="12" cy="12" r="4.5" fill="#6ec6d8"/><circle cx="12" cy="12" r="2" fill="#1b2a4a"/></svg>
       </a>
       <!-- 喜马拉雅 -->
-      <a href="https://xima.tv/1_kBU161?_sonic=0" target="_blank" class="platform-link" title="&#21916;&#39532;&#25289;&#38597;" style="--icon-color:#F55B23">
-        <svg viewBox="0 0 24 24"><path d="M16.107 0H7.893C3.535 0 0 3.535 0 7.893v8.214C0 20.465 3.535 24 7.893 24h8.214C20.465 24 24 20.465 24 16.107V7.893C24 3.535 20.465 0 16.107 0zM12 18.857l-6.857-6h4.286V5.143h5.142v7.714h4.286L12 18.857z"/></svg>
+      <a href="https://xima.tv/1_kBU161?_sonic=0" target="_blank" class="platform-link" title="&#21916;&#39532;&#25289;&#38597;" style="--icon-bg:#f04b23;--icon-color:#ffffff">
+        <svg viewBox="0 0 24 24"><path d="M3.5 18.5L12 4l8.5 14.5H3.5zm4.3-2h8.4L12 8.5l-4.2 8z"/></svg>
       </a>
       <!-- 网易云音乐 -->
-      <a href="https://163cn.tv/31QptTx" target="_blank" class="platform-link" title="&#32593;&#26131;&#20113;&#38899;&#20048;" style="--icon-color:#C20C0C">
+      <a href="https://163cn.tv/31QptTx" target="_blank" class="platform-link" title="&#32593;&#26131;&#20113;&#38899;&#20048;" style="--icon-bg:#C20C0C;--icon-color:#ffffff">
         <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.22 5.2c.442 0 .801.098 1.076.293.275.195.47.471.587.828.117.357.14.774.066 1.252l-.553 3.262a3.6 3.6 0 011.81 1.274 3.44 3.44 0 01.622 2.028c0 .632-.156 1.217-.469 1.756a3.558 3.558 0 01-1.288 1.288 3.441 3.441 0 01-1.756.469c-.632 0-1.217-.156-1.756-.469a3.558 3.558 0 01-1.288-1.288 3.441 3.441 0 01-.469-1.756c0-.749.195-1.429.586-2.04a3.6 3.6 0 011.598-1.35l.553-3.202c.039-.234.01-.407-.088-.518-.098-.112-.254-.168-.469-.168-.273 0-.583.13-.93.39-.346.26-.67.605-.968 1.035a7.41 7.41 0 00-.785 1.445 4.57 4.57 0 00-.358 1.358l-.082.87c-.02.157-.068.275-.147.352a.45.45 0 01-.323.117.45.45 0 01-.34-.147.543.543 0 01-.13-.37l.082-.87a5.61 5.61 0 01.452-1.722 8.72 8.72 0 01.95-1.722 5.95 5.95 0 011.206-1.282c.456-.352.936-.528 1.44-.528zM12 12.4a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8z"/></svg>
       </a>
       <!-- Bilibili -->
-      <a href="#" target="_blank" class="platform-link" title="Bilibili" style="--icon-color:#FB7299">
+      <a href="#" target="_blank" class="platform-link" title="Bilibili" style="--icon-bg:#fdf0f3;--icon-color:#FB7299">
         <svg viewBox="0 0 24 24"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 01-.373-.906c0-.356.124-.659.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 01.16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
       </a>
       <!-- RSS -->
-      <a href="https://anchor.fm/s/f526e620/podcast/rss" target="_blank" class="platform-link" title="RSS Feed" style="--icon-color:#F26522">
+      <a href="https://anchor.fm/s/f526e620/podcast/rss" target="_blank" class="platform-link" title="RSS Feed" style="--icon-bg:#F26522;--icon-color:#ffffff">
         <svg viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44zm0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/></svg>
       </a>
     </div>
