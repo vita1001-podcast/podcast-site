@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe - VITA1001 Modern Pharma</title>
+  <meta name="description" content="Subscribe to VITA1001 Modern Pharma podcast on your favorite platform.">
+  <link rel="alternate" type="application/rss+xml" title="VITA1001 Modern Pharma RSS" href="https://anchor.fm/s/f526e620/podcast/rss">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><span class="vita">VITA1001</span> Modern Pharma</a>
+      <button class="nav-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="episodes.html" data-en="Episodes" data-zh="&#21095;&#38598;">Episodes</a></li>
+        <li><a href="subscribe.html" data-en="Subscribe" data-zh="&#35746;&#38405;">Subscribe</a></li>
+        <li><a href="contact.html" data-en="Contact Us" data-zh="&#32852;&#31995;&#25105;&#20204;">Contact Us</a></li>
+        <li><button class="nav-btn" onclick="toggleLang()" id="lang-toggle">&#20013;&#25991;</button></li>
+        <li><button class="nav-btn" onclick="toggleTheme()" id="theme-toggle" aria-label="Toggle theme">&#9790;</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Platforms -->
+  <section class="platforms">
+    <div class="platforms-inner">
+      <span class="platforms-label" data-en="Listen on" data-zh="&#25910;&#21548;&#24179;&#21488;">Listen on</span>
+      <!-- Apple Podcasts -->
+      <a href="https://podcasts.apple.com/us/podcast/vita1001-modern-pharma/id1749690729" target="_blank" class="platform-link" title="Apple Podcasts">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a2/ad/ff/a2adff60-629b-5dbd-117d-82dede11f26b/podcasts-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/100x100bb.jpg" alt="Apple Podcasts">
+      </a>
+      <!-- Spotify -->
+      <a href="https://open.spotify.com/show/3apr3LdooPxfRLiuXrymzw" target="_blank" class="platform-link" title="Spotify">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/40/45/fc404575-f167-18b7-191e-c4a51122740e/AppIcon-0-0-1x_U007epad-0-1-0-0-sRGB-85-220.png/100x100bb.jpg" alt="Spotify">
+      </a>
+      <!-- YouTube Music -->
+      <a href="https://music.youtube.com/playlist?list=PLPjuTfcQgi3b1aeb5knmtNwT-mX2B52TM&si=ppPeWNRkZ54Z3gGb" target="_blank" class="platform-link" title="YouTube Music">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/0d/46/700d46f2-3dbd-7a5e-41af-050939771110/logo_youtube_music_2024_q4_color-0-1x_U007emarketing-0-0-0-7-0-0-0-85-220-0.png/100x100bb.jpg" alt="YouTube Music">
+      </a>
+      <!-- 小宇宙 -->
+      <a href="https://www.xiaoyuzhoufm.com/podcast/66243f4ded3fd4d8ef79b84e" target="_blank" class="platform-link" title="&#23567;&#23431;&#23449;">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/53/35/655335f5-9991-f679-a8a4-e2948ba01244/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/100x100bb.jpg" alt="&#23567;&#23431;&#23449;">
+      </a>
+      <!-- 喜马拉雅 -->
+      <a href="https://xima.tv/1_kBU161?_sonic=0" target="_blank" class="platform-link" title="&#21916;&#39532;&#25289;&#38597;">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/7f/a3/6d7fa357-6450-9f9f-9ba9-b02a392d2dfb/AppIcon-0-1x_U007emarketing-0-8-0-sRGB-85-220-0.png/100x100bb.jpg" alt="&#21916;&#39532;&#25289;&#38597;">
+      </a>
+      <!-- 网易云音乐 -->
+      <a href="https://163cn.tv/31QptTx" target="_blank" class="platform-link" title="&#32593;&#26131;&#20113;&#38899;&#20048;">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/26/e7/cc/26e7cc4e-b0a6-6563-7319-8245bb83cce7/appIconNew-0-1x_U007epad-0-1-0-85-220-0.png/100x100bb.jpg" alt="&#32593;&#26131;&#20113;&#38899;&#20048;">
+      </a>
+      <!-- Bilibili -->
+      <a href="#" target="_blank" class="platform-link" title="Bilibili">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/48/f3/49/48f349f2-cf5e-1a96-8a83-e50c6646e55e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg" alt="Bilibili">
+      </a>
+      <!-- RSS -->
+      <a href="https://anchor.fm/s/f526e620/podcast/rss" target="_blank" class="platform-link" title="RSS Feed" style="background:#F26522;">
+        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:#fff"><path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44zm0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section class="subscribe" id="subscribe">
+    <h2 data-en="Never Miss an Episode" data-zh="&#19981;&#38169;&#36807;&#27599;&#19968;&#26399;">Never Miss an Episode</h2>
+    <p data-en="Subscribe to get notified when new episodes drop. Join our community of pharma professionals." data-zh="&#35746;&#38405;&#21363;&#21487;&#22312;&#26032;&#21095;&#38598;&#21457;&#24067;&#26102;&#25910;&#21040;&#36890;&#30693;&#12290;&#21152;&#20837;&#25105;&#20204;&#30340;&#21307;&#33647;&#19987;&#19994;&#20154;&#22763;&#31038;&#21306;&#12290;">Subscribe to get notified when new episodes drop. Join our community of pharma professionals.</p>
+    <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+      <input type="email" id="subscribe-input" placeholder="Enter your email" data-en-placeholder="Enter your email" data-zh-placeholder="&#36755;&#20837;&#20320;&#30340;&#37038;&#31665;" required>
+      <button type="submit" class="btn btn-primary" data-en="Subscribe" data-zh="&#35746;&#38405;">Subscribe</button>
+    </form>
+    <a href="https://anchor.fm/s/f526e620/podcast/rss" class="rss-link" data-en="Subscribe via RSS" data-zh="&#36890;&#36807; RSS &#35746;&#38405;">Subscribe via RSS</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <strong>VITA1001 Modern Pharma</strong> &middot; &copy; 2026 &middot;
+        <a href="https://vita1001.com" style="color:var(--accent)">vita1001.com</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="episodes.html">Episodes</a></li>
+        <li><a href="subscribe.html">Subscribe</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://anchor.fm/s/f526e620/podcast/rss">RSS</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Language =====
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.getElementById('lang-toggle').textContent = lang === 'en' ? '\u4e2d\u6587' : 'EN';
+      document.querySelectorAll('[data-en][data-zh]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+      const subInput = document.getElementById('subscribe-input');
+      if (subInput) subInput.placeholder = subInput.getAttribute('data-' + lang + '-placeholder');
+    }
+
+    function toggleLang() { setLang(currentLang === 'en' ? 'zh' : 'en'); }
+
+    // ===== Theme =====
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.getElementById('theme-toggle').textContent = next === 'dark' ? '\u2600' : '\u263E';
+    }
+
+    // ===== Init =====
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') document.getElementById('theme-toggle').textContent = '\u2600';
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-toggle').textContent = '\u2600';
+      }
+      if (currentLang !== 'en') setLang(currentLang);
+    })();
+
+    // ===== Subscribe =====
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      alert(currentLang === 'zh' ? '\u8c22\u8c22\u8ba2\u9605\uff01' : 'Thanks for subscribing!');
+      input.value = '';
+    }
+
+    // ===== Mobile Menu =====
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
